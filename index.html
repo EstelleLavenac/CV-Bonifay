@@ -10,8 +10,8 @@
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --rouge:#E2001A;
-  --rouge-fonce:#B30014;
+  --rouge:#C51226;
+  --rouge-fonce:#9E0E1E;
   --anthracite:#2B2B2A;
   --gris:#5E5E5C;
   --beton:#E9E7E3;
@@ -41,6 +41,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdro
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 .logo-mark{background:var(--rouge);color:#fff;font-weight:700;font-size:1.05rem;letter-spacing:.02em;padding:6px 10px;border-radius:4px;line-height:1}
 .logo-x{font-family:var(--mono);font-size:.75rem;color:var(--gris)}
+.logo-bonifay{height:44px;width:auto;display:block}
 .logo-b{font-weight:700;font-size:.95rem;letter-spacing:.08em}
 .nav-links{display:none;gap:28px;font-weight:500;font-size:1rem;letter-spacing:.03em;text-transform:uppercase}
 .nav-links a{text-decoration:none;position:relative}
@@ -48,7 +49,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdro
 .nav-links a:hover::after{width:100%}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--sans);font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:.88rem;text-decoration:none;border-radius:999px;padding:14px 22px;border:2px solid transparent;transition:transform .2s, background .2s, color .2s, box-shadow .2s;cursor:pointer;min-height:48px}
 .btn:active{transform:scale(.97)}
-.btn-rouge{background:var(--rouge);color:#fff;box-shadow:0 8px 24px -10px rgba(226,0,26,.7)}
+.btn-rouge{background:var(--rouge);color:#fff;box-shadow:0 8px 24px -10px rgba(197,18,38,.7)}
 .btn-rouge:hover{background:var(--rouge-fonce);transform:translateY(-2px)}
 .btn-ghost{border-color:var(--anthracite);color:var(--anthracite);background:transparent}
 .btn-ghost:hover{background:var(--anthracite);color:#fff}
@@ -78,7 +79,7 @@ h1 .outline{-webkit-text-stroke:2px var(--anthracite);color:transparent}
 /* Visuel hero : plan d'architecte */
 .plan-visu{position:relative;width:100%;max-width:480px;margin:0 auto;aspect-ratio:1/1;perspective:1200px}
 .plan-carte{position:absolute;inset:0;border-radius:28px;overflow:hidden;background:
-  radial-gradient(120% 90% at 85% 0%, rgba(226,0,26,.22), transparent 55%),
+  radial-gradient(120% 90% at 85% 0%, rgba(197,18,38,.22), transparent 55%),
   linear-gradient(160deg,#323231,#1E1E1D);
   box-shadow:0 40px 80px -40px rgba(0,0,0,.6), inset 0 0 0 1px rgba(255,255,255,.06);
   transition:transform .4s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
@@ -237,17 +238,14 @@ h2 em{font-style:normal;color:var(--rouge)}
 .reals{display:grid;gap:14px}
 .real{display:block;text-decoration:none;background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid rgba(0,0,0,.06);transition:transform .25s, box-shadow .25s}
 .real:hover{transform:translateY(-4px);box-shadow:0 22px 36px -22px rgba(0,0,0,.45)}
-.real-visu{height:150px;position:relative;display:flex;align-items:flex-end;padding:16px;color:#fff;font-weight:700;text-transform:uppercase;font-size:1.5rem;line-height:1}
-.real-visu .tag{position:absolute;top:14px;left:14px;background:rgba(255,255,255,.92);color:var(--anthracite);padding:5px 9px;border-radius:999px}
+.real-visu{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--beton)}
+.real-visu img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.real:hover .real-visu img{transform:scale(1.05)}
+.real-visu .tag{position:absolute;top:14px;left:14px;background:rgba(255,255,255,.92);color:var(--anthracite);padding:5px 9px;border-radius:999px;font-size:.66rem}
 .real-body{padding:16px 18px 18px}
-.real-body p{color:var(--gris);font-size:.9rem}
+.real-body h3{font-weight:700;text-transform:uppercase;font-size:1.25rem;line-height:1.1;margin-bottom:6px}
+.real-body p{color:var(--gris);font-size:.92rem}
 .real-body .lien{margin-top:10px;display:inline-flex;gap:6px;font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.05em;color:var(--rouge)}
-.v1{background:linear-gradient(135deg,#2F6B3A,#7DB46C)}
-.v2{background:linear-gradient(135deg,#C7861B,#F2C14E)}
-.v3{background:linear-gradient(135deg,#3B2A4F,#B88AC4)}
-.v4{background:linear-gradient(135deg,#3A2418,#9B6A47)}
-.v5{background:linear-gradient(135deg,#1E2E3A,#7C9BB0)}
-.v6{background:linear-gradient(135deg,var(--rouge-fonce),var(--rouge))}
 @media(min-width:700px){.reals{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1050px){.reals{grid-template-columns:repeat(3,1fr)}}
 
@@ -315,7 +313,7 @@ footer a{color:#fff}
     <a href="#top" class="logo" aria-label="Accueil">
       <span class="logo-mark">ESTELLE</span>
       <span class="logo-x">×</span>
-      <span class="logo-b">BONIFAY</span>
+      <img class="logo-bonifay" src="logo-bonifay.png" alt="Bonifay, matériaux de construction" width="143" height="136">
     </a>
     <nav class="nav-links" aria-label="Navigation principale">
       <a href="#univers">Mes univers</a>
@@ -498,28 +496,28 @@ footer a{color:#fff}
     </div>
     <div class="reals">
       <a class="real reveal" href="https://estellelavenac.github.io/Estelle-Lavenac/book.html" target="_blank" rel="noopener">
-        <div class="real-visu v1"><span class="tag mono">Print · Catalogue</span>Mon Petit Vert</div>
-        <div class="real-body"><p>Catalogue pour une jardinerie, avec mises en situation. Terrasse & jardin, ça vous parle ?</p><span class="lien">Voir dans le book →</span></div>
+        <div class="real-visu"><img src="https://estellelavenac.github.io/Estelle-Lavenac/book-assets/mon-petit-vert-02-cover.jpg" alt="Couverture du catalogue Mon petit vert posée sur une table avec des plantes" loading="lazy" decoding="async"><span class="tag mono">Print · Catalogue</span></div>
+        <div class="real-body"><h3>Mon petit vert</h3><p>Catalogue et identité pour une jardinerie. Terrasse & jardin, ça vous parle ?</p><span class="lien">Voir dans le book →</span></div>
       </a>
       <a class="real reveal" href="https://estellelavenac.github.io/Estelle-Lavenac/book.html" target="_blank" rel="noopener">
-        <div class="real-visu v2"><span class="tag mono">Packaging</span>Mon pot de miel</div>
-        <div class="real-body"><p>Packaging pour un producteur de miel. Du produit brut au produit fini.</p><span class="lien">Voir dans le book →</span></div>
+        <div class="real-visu"><img src="https://estellelavenac.github.io/Estelle-Lavenac/book-assets/la-boite-immo-03-thumb.png" alt="Infographie Bilan 2020 de La boîte immo" loading="lazy" decoding="async"><span class="tag mono">Print · Infographie</span></div>
+        <div class="real-body"><h3>La boîte immo</h3><p>Bilan annuel en infographie pour un réseau immobilier : des chiffres qui se lisent d'un coup d'œil.</p><span class="lien">Voir dans le book →</span></div>
       </a>
       <a class="real reveal" href="https://estellelavenac.github.io/Estelle-Lavenac/book.html" target="_blank" rel="noopener">
-        <div class="real-visu v3"><span class="tag mono">Identité</span>Peau Cible</div>
-        <div class="real-body"><p>Charte graphique d'une marque de sérums : système complet, déclinable partout.</p><span class="lien">Voir dans le book →</span></div>
+        <div class="real-visu"><img src="https://estellelavenac.github.io/Estelle-Lavenac/book-assets/marc-01-cover.jpg" alt="Gamme de sachets de café Marc ! aux couleurs vives" loading="lazy" decoding="async"><span class="tag mono">Identité · Packaging</span></div>
+        <div class="real-body"><h3>Marc !</h3><p>Une marque de café 100 % personnalisable selon l'humeur : charte, sachets, e-shop.</p><span class="lien">Voir dans le book →</span></div>
       </a>
       <a class="real reveal" href="https://estellelavenac.github.io/Estelle-Lavenac/book.html" target="_blank" rel="noopener">
-        <div class="real-visu v4"><span class="tag mono">Web · Vidéo</span>Juste cofee</div>
-        <div class="real-body"><p>Site immersif au scroll, construit autour d'une vidéo d'expresso tournée maison.</p><span class="lien">Voir dans le book →</span></div>
+        <div class="real-visu"><img src="https://estellelavenac.github.io/Estelle-Lavenac/book-assets/peau-cible-01-cover.jpg" alt="Visuel Peau Cible : du flacon au panier" loading="lazy" decoding="async"><span class="tag mono">Identité · Web</span></div>
+        <div class="real-body"><h3>Peau Cible</h3><p>Charte, packaging, site et newsletter pour une marque de sérums sur mesure.</p><span class="lien">Voir dans le book →</span></div>
       </a>
       <a class="real reveal" href="https://estellelavenac.github.io/Estelle-Lavenac/book.html" target="_blank" rel="noopener">
-        <div class="real-visu v5"><span class="tag mono">Web 3D</span>Et sens</div>
-        <div class="real-body"><p>Site immersif 3D pour une maison de parfum. Preuve qu'on peut bâtir des expériences.</p><span class="lien">Voir dans le book →</span></div>
+        <div class="real-visu"><img src="https://estellelavenac.github.io/Estelle-Lavenac/book-assets/evoliz-landing-01.png" alt="Maquettes de la landing page Evoliz" loading="lazy" decoding="async"><span class="tag mono">Web · UI</span></div>
+        <div class="real-body"><h3>Evoliz</h3><p>Refonte de landing page pour un logiciel de gestion : claire, rassurante, orientée conversion.</p><span class="lien">Voir dans le book →</span></div>
       </a>
       <a class="real reveal" href="https://estellelavenac.github.io/Estelle-Lavenac/book.html" target="_blank" rel="noopener">
-        <div class="real-visu v6"><span class="tag mono">Tout le stock</span>Le book complet</div>
-        <div class="real-body"><p>Tous les projets, rangés par univers, comme dans vos agences.</p><span class="lien">Ouvrir le book →</span></div>
+        <div class="real-visu"><img src="https://estellelavenac.github.io/Estelle-Lavenac/book-assets/interkab-le-pack-01.webp" alt="Illustration du motion design Interkab, un personnage devant des graphiques" loading="lazy" decoding="async"><span class="tag mono">Motion design</span></div>
+        <div class="real-body"><h3>Interkab · Le Pack</h3><p>Vidéo motion pour présenter une offre de services, en format court.</p><span class="lien">Voir dans le book →</span></div>
       </a>
     </div>
   </div>
@@ -718,11 +716,11 @@ footer a{color:#fff}
 
   /* ---------- Mini-jeu : Le Juste Prix ---------- */
   var ICONES = {
-    sac:'<svg viewBox="0 0 64 64" fill="none" stroke="#2B2B2A" stroke-width="2.4" stroke-linejoin="round"><path d="M16 12h32l4 8v34a4 4 0 0 1-4 4H16a4 4 0 0 1-4-4V20z"/><path d="M12 20h40"/><rect x="20" y="28" width="24" height="14" rx="2" fill="#E2001A" stroke="none"/><path d="M24 35h16" stroke="#fff"/></svg>',
-    parpaing:'<svg viewBox="0 0 64 64" fill="none" stroke="#2B2B2A" stroke-width="2.4" stroke-linejoin="round"><path d="M8 24l12-8h36v24l-12 8H8z"/><path d="M8 24h36v24M44 24l12-8"/><rect x="13" y="29" width="10" height="14" rx="1.5" fill="#E2001A" stroke="none"/><rect x="29" y="29" width="10" height="14" rx="1.5" fill="#E2001A" stroke="none"/></svg>',
-    plaque:'<svg viewBox="0 0 64 64" fill="none" stroke="#2B2B2A" stroke-width="2.4" stroke-linejoin="round"><path d="M18 6h28v52H18z"/><path d="M46 6l4 3v52l-4-3"/><path d="M24 50h16" stroke="#E2001A" stroke-width="3"/><path d="M24 14h10" stroke="#E2001A" stroke-width="3"/></svg>',
-    toupie:'<svg viewBox="0 0 64 64" fill="none" stroke="#2B2B2A" stroke-width="2.4" stroke-linejoin="round"><path d="M4 44V30h12l4-6h4v20"/><path d="M24 44h34V40"/><ellipse cx="40" cy="30" rx="16" ry="10" fill="#E2001A" stroke="#2B2B2A"/><path d="M30 24l20 12M34 21l18 10" stroke="#fff"/><circle cx="14" cy="47" r="5" fill="#fff"/><circle cx="46" cy="47" r="5" fill="#fff"/></svg>',
-    designer:'<svg viewBox="0 0 64 64" fill="none" stroke="#2B2B2A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><path d="M14 30a18 18 0 0 1 36 0z" fill="#E2001A" stroke="#2B2B2A"/><path d="M10 30h44"/><path d="M32 12v-4"/><circle cx="32" cy="42" r="10" fill="#fff"/><path d="M28 41h0M36 41h0" stroke-width="3.5"/><path d="M28 46c2 2 6 2 8 0"/></svg>'
+    sac:'<svg viewBox="0 0 64 64" fill="none" stroke="#2B2B2A" stroke-width="2.4" stroke-linejoin="round"><path d="M16 12h32l4 8v34a4 4 0 0 1-4 4H16a4 4 0 0 1-4-4V20z"/><path d="M12 20h40"/><rect x="20" y="28" width="24" height="14" rx="2" fill="#C51226" stroke="none"/><path d="M24 35h16" stroke="#fff"/></svg>',
+    parpaing:'<svg viewBox="0 0 64 64" fill="none" stroke="#2B2B2A" stroke-width="2.4" stroke-linejoin="round"><path d="M8 24l12-8h36v24l-12 8H8z"/><path d="M8 24h36v24M44 24l12-8"/><rect x="13" y="29" width="10" height="14" rx="1.5" fill="#C51226" stroke="none"/><rect x="29" y="29" width="10" height="14" rx="1.5" fill="#C51226" stroke="none"/></svg>',
+    plaque:'<svg viewBox="0 0 64 64" fill="none" stroke="#2B2B2A" stroke-width="2.4" stroke-linejoin="round"><path d="M18 6h28v52H18z"/><path d="M46 6l4 3v52l-4-3"/><path d="M24 50h16" stroke="#C51226" stroke-width="3"/><path d="M24 14h10" stroke="#C51226" stroke-width="3"/></svg>',
+    toupie:'<svg viewBox="0 0 64 64" fill="none" stroke="#2B2B2A" stroke-width="2.4" stroke-linejoin="round"><path d="M4 44V30h12l4-6h4v20"/><path d="M24 44h34V40"/><ellipse cx="40" cy="30" rx="16" ry="10" fill="#C51226" stroke="#2B2B2A"/><path d="M30 24l20 12M34 21l18 10" stroke="#fff"/><circle cx="14" cy="47" r="5" fill="#fff"/><circle cx="46" cy="47" r="5" fill="#fff"/></svg>',
+    designer:'<svg viewBox="0 0 64 64" fill="none" stroke="#2B2B2A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><path d="M14 30a18 18 0 0 1 36 0z" fill="#C51226" stroke="#2B2B2A"/><path d="M10 30h44"/><path d="M32 12v-4"/><circle cx="32" cy="42" r="10" fill="#fff"/><path d="M28 41h0M36 41h0" stroke-width="3.5"/><path d="M28 46c2 2 6 2 8 0"/></svg>'
   };
   var PRODUITS = [
     {nom:'Sac de ciment', desc:'Ciment gris CEM II 32,5 · sac de 35 kg', univers:'Gros œuvre', ico:'sac', prix:9.30, tol:.1, mot:'Le prix d\'un bon point de départ.'},
@@ -752,7 +750,7 @@ footer a{color:#fff}
     var p = PRODUITS[idx];
     essais = 0; fini = false;
     document.getElementById('jp-num').textContent = 'Produit ' + (idx + 1) + ' / ' + PRODUITS.length;
-    document.getElementById('jp-visu').innerHTML = ICONES[p.ico].replace(/#E2001A/g, getComputedStyle(document.documentElement).getPropertyValue('--rouge').trim() || '#E2001A');
+    document.getElementById('jp-visu').innerHTML = ICONES[p.ico].replace(/#C51226/g, getComputedStyle(document.documentElement).getPropertyValue('--rouge').trim() || '#C51226');
     document.getElementById('jp-univers').textContent = p.univers;
     document.getElementById('jp-nom').textContent = p.nom;
     document.getElementById('jp-desc').textContent = p.desc;
