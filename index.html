@@ -1,0 +1,864 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estelle Lavenac × Bonifay</title>
+<meta name="description" content="Candidature spontanée d'Estelle Lavenac, designer graphique senior (print, web, motion & vidéo), pour le Groupe Bonifay.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rouge:#E2001A;
+  --rouge-fonce:#B30014;
+  --anthracite:#2B2B2A;
+  --gris:#5E5E5C;
+  --beton:#E9E7E3;
+  --beton-clair:#F5F4F1;
+  --blanc:#FFFFFF;
+  --jaune:#FFC72C;
+  --radius:14px;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --sans:'Archivo',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--anthracite);background:var(--beton-clair);line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 20px}
+.mono{font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+
+/* Texture béton */
+.beton{position:relative}
+.beton::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.35;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .35 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ---------- Header ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,.06)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{background:var(--rouge);color:#fff;font-weight:900;font-stretch:125%;font-size:1.05rem;letter-spacing:.02em;padding:6px 10px;border-radius:4px;line-height:1}
+.logo-x{font-family:var(--mono);font-size:.75rem;color:var(--gris)}
+.logo-b{font-weight:800;font-stretch:110%;font-size:.95rem;letter-spacing:.08em}
+.nav-links{display:none;gap:28px;font-weight:600;font-size:.88rem;letter-spacing:.04em;text-transform:uppercase}
+.nav-links a{text-decoration:none;position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-4px;height:2px;width:0;background:var(--rouge);transition:width .25s}
+.nav-links a:hover::after{width:100%}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--sans);font-weight:800;font-stretch:105%;text-transform:uppercase;letter-spacing:.05em;font-size:.88rem;text-decoration:none;border-radius:999px;padding:14px 22px;border:2px solid transparent;transition:transform .2s, background .2s, color .2s, box-shadow .2s;cursor:pointer;min-height:48px}
+.btn:active{transform:scale(.97)}
+.btn-rouge{background:var(--rouge);color:#fff;box-shadow:0 8px 24px -10px rgba(226,0,26,.7)}
+.btn-rouge:hover{background:var(--rouge-fonce);transform:translateY(-2px)}
+.btn-ghost{border-color:var(--anthracite);color:var(--anthracite);background:transparent}
+.btn-ghost:hover{background:var(--anthracite);color:#fff}
+.btn-blanc{background:#fff;color:var(--rouge)}
+.btn-blanc:hover{transform:translateY(-2px)}
+.btn-sm{padding:10px 16px;font-size:.78rem;min-height:40px}
+.nav .btn-sm{display:none}
+.nav-droite{display:flex;align-items:center;gap:10px}
+.pastille-jeu{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--anthracite);background:var(--beton);padding:6px 10px;border-radius:999px;transition:background .2s,color .2s}
+.pastille-jeu:hover{background:var(--anthracite);color:#fff}
+.pj-dot{width:6px;height:6px;border-radius:50%;background:var(--rouge);animation:pulse 1.6s infinite}
+@media(min-width:900px){.nav-links{display:flex}.nav .btn-sm{display:inline-flex}}
+
+/* ---------- Hero ---------- */
+.hero{padding:44px 0 0;background:var(--blanc);overflow-x:clip}
+.hero-grid{display:grid;gap:36px;align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:8px;background:var(--beton);padding:7px 12px;border-radius:999px;margin-bottom:20px}
+.kicker .dot{width:8px;height:8px;border-radius:50%;background:var(--rouge);animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+h1{font-weight:900;font-stretch:112%;font-size:clamp(2rem,7.6vw,4.2rem);line-height:.95;letter-spacing:-.02em;text-transform:uppercase}
+h1 .rouge{color:var(--rouge)}
+h1 .outline{-webkit-text-stroke:2px var(--anthracite);color:transparent}
+.hero-sub{margin:22px 0 28px;font-size:1.08rem;max-width:520px;color:var(--gris)}
+.hero-sub strong{color:var(--anthracite)}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px}
+
+/* Visuel hero : plan d'architecte */
+.plan-visu{position:relative;width:100%;max-width:480px;margin:0 auto;aspect-ratio:1/1;perspective:1200px}
+.plan-carte{position:absolute;inset:0;border-radius:28px;overflow:hidden;background:
+  radial-gradient(120% 90% at 85% 0%, rgba(226,0,26,.22), transparent 55%),
+  linear-gradient(160deg,#323231,#1E1E1D);
+  box-shadow:0 40px 80px -40px rgba(0,0,0,.6), inset 0 0 0 1px rgba(255,255,255,.06);
+  transition:transform .4s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
+.plan-carte::before{content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px),
+  linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:60px 60px,60px 60px,12px 12px,12px 12px;mask-image:radial-gradient(circle at 50% 55%,#000 55%,transparent 95%);-webkit-mask-image:radial-gradient(circle at 50% 55%,#000 55%,transparent 95%)}
+.plan-carte svg{position:absolute;inset:0;width:100%;height:100%}
+.plan-carte .trait{fill:none;stroke:rgba(255,255,255,.88);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:trace 1.6s cubic-bezier(.6,0,.2,1) forwards}
+.plan-carte .fin{stroke-width:1.2;stroke:rgba(255,255,255,.45)}
+.plan-carte .cote{fill:none;stroke:var(--rouge);stroke-width:1.5;stroke-dasharray:1;stroke-dashoffset:1;animation:trace 1s ease-out forwards}
+.plan-carte .vitre{fill:var(--rouge);opacity:0;animation:apparait .6s ease-out forwards}
+.plan-carte .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.12em;fill:#fff;opacity:0;animation:apparait .5s ease-out forwards}
+.plan-carte .lbl.r{fill:#fff;font-weight:600}
+@keyframes trace{to{stroke-dashoffset:0}}
+@keyframes apparait{to{opacity:1}}
+.cartouche{position:absolute;left:18px;right:18px;bottom:16px;display:flex;justify-content:space-between;gap:10px;font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);border-top:1px solid rgba(255,255,255,.12);padding-top:10px}
+.cartouche b{color:#fff;font-weight:600}
+
+.puce{position:absolute;z-index:3;display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:14px;background:rgba(255,255,255,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 16px 36px -18px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.6);opacity:0;animation:monte .7s cubic-bezier(.2,.9,.3,1.2) forwards, flotte 6s ease-in-out infinite}
+.puce .mono{font-size:.62rem;color:var(--gris);display:block;line-height:1.2}
+.puce b{display:block;font-weight:800;font-stretch:108%;font-size:.95rem;line-height:1.15}
+.puce-1{top:-14px;left:-10px;animation-delay:1.9s,2.6s}
+.puce-2{bottom:46px;right:-12px;background:var(--rouge);color:#fff;animation-delay:2.2s,3s}
+.puce-2 .mono{color:rgba(255,255,255,.8)}
+.puce-2 b{font-size:1.6rem;font-stretch:118%}
+.puce-3{top:42%;left:-16px;animation-delay:2.5s,3.4s;padding:8px 12px}
+.puce-3 i{width:8px;height:8px;border-radius:50%;background:#2BB673;box-shadow:0 0 0 4px rgba(43,182,115,.2);animation:pulse 1.6s infinite}
+@keyframes monte{from{opacity:0;transform:translateY(14px) scale(.94)}to{opacity:1;transform:none}}
+@keyframes flotte{0%,100%{translate:0 0}50%{translate:0 -6px}}
+@media(max-width:520px){.puce-1{left:0}.puce-2{right:0}.puce-3{left:0}}
+@media(min-width:900px){.hero{padding-top:72px}.hero-grid{grid-template-columns:1.15fr .85fr}}
+
+/* Ruban de chantier */
+.ruban{margin-top:48px;background:repeating-linear-gradient(-45deg,var(--rouge) 0 22px,#fff 22px 44px);padding:6px 0;transform:rotate(-1.2deg);box-shadow:0 10px 30px -14px rgba(0,0,0,.35)}
+.ruban-inner{background:var(--anthracite);color:#fff;overflow:hidden;white-space:nowrap}
+.defile{display:inline-flex;gap:36px;padding:12px 0;animation:defile 26s linear infinite;font-weight:800;font-stretch:112%;text-transform:uppercase;letter-spacing:.06em;font-size:.95rem}
+.defile i{font-style:normal;color:var(--rouge)}
+@keyframes defile{to{transform:translateX(-50%)}}
+
+/* ---------- Sections ---------- */
+section{padding:72px 0}
+.titre-section{margin-bottom:36px}
+.titre-section .mono{color:var(--rouge);display:block;margin-bottom:10px}
+h2{font-weight:900;font-stretch:112%;font-size:clamp(1.9rem,6.5vw,3.3rem);line-height:1;text-transform:uppercase;letter-spacing:-.01em}
+h2 em{font-style:normal;color:var(--rouge)}
+.intro{margin-top:14px;color:var(--gris);max-width:640px;font-size:1.02rem}
+
+/* Services (pictos) */
+.services{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.service{background:#fff;border-radius:var(--radius);padding:20px 16px;text-align:center;border:1px solid rgba(0,0,0,.05);transition:transform .25s, box-shadow .25s}
+.service:hover{transform:translateY(-4px);box-shadow:0 18px 30px -18px rgba(0,0,0,.35)}
+.service svg{width:44px;height:44px;margin:0 auto 12px;stroke:var(--rouge);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.service b{display:block;font-weight:900;font-stretch:110%;text-transform:uppercase;font-size:.92rem;line-height:1.1}
+.service small{display:block;margin-top:6px;color:var(--gris);font-size:.82rem;line-height:1.35}
+@media(min-width:760px){.services{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1050px){.services{grid-template-columns:repeat(6,1fr)}}
+
+/* Univers */
+.univers-bg{background:var(--anthracite);color:#fff}
+.univers-bg h2{color:#fff}
+.univers-bg .intro{color:#C9C8C4}
+.univers{display:grid;gap:14px}
+.u-card{position:relative;border-radius:var(--radius);padding:24px;background:#363635;overflow:hidden;min-height:190px;display:flex;flex-direction:column;justify-content:flex-end;border:1px solid rgba(255,255,255,.06);transition:background .3s}
+.u-card:hover{background:var(--rouge)}
+.u-card .num{position:absolute;top:16px;right:20px;font-weight:900;font-stretch:125%;font-size:3.4rem;line-height:1;color:rgba(255,255,255,.08);transition:color .3s}
+.u-card:hover .num{color:rgba(255,255,255,.25)}
+.u-card .mono{color:var(--jaune);margin-bottom:8px}
+.u-card h3{font-weight:900;font-stretch:112%;font-size:1.35rem;text-transform:uppercase;line-height:1.05;margin-bottom:8px}
+.u-card p{color:#D6D5D1;font-size:.92rem}
+.u-card:hover p{color:#fff}
+@media(min-width:700px){.univers{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1050px){.univers{grid-template-columns:repeat(3,1fr)}}
+
+
+/* Mini-jeu : Le Juste Prix */
+.jeu-bg{background:var(--beton-clair)}
+.jeu{display:grid;gap:28px;align-items:start}
+.jeu-texte .intro{margin-top:14px}
+.regles{list-style:none;margin:22px 0 0;display:grid;gap:10px}
+.regles li{display:flex;gap:12px;align-items:baseline;font-size:.96rem}
+.regles b{font-family:var(--mono);font-size:.74rem;color:var(--rouge);min-width:22px}
+.scores{display:flex;gap:14px;margin-top:24px;flex-wrap:wrap}
+.scores div{background:#fff;border-radius:var(--radius);padding:14px 18px;border:1px solid rgba(0,0,0,.06);min-width:130px}
+.scores .mono{color:var(--gris);font-size:.68rem;display:block}
+.scores strong{font-size:2rem;font-weight:900;font-stretch:115%;line-height:1.1}
+.avert{margin-top:18px;font-size:.8rem;color:var(--gris);max-width:440px}
+.jp{position:relative;width:100%;max-width:440px;margin:0 auto;border-radius:24px;overflow:hidden;background:#fff;box-shadow:0 30px 60px -36px rgba(0,0,0,.5), inset 0 0 0 1px rgba(0,0,0,.06)}
+.jp-head{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:var(--anthracite);color:#fff}
+.jp-head .mono{color:rgba(255,255,255,.7);font-size:.68rem;display:block}
+.jp-head b{display:block}
+.jp-head b{font-weight:900;font-stretch:115%;text-transform:uppercase;letter-spacing:.04em}
+.jp-prog{display:flex;gap:6px}
+.jp-prog i{width:22px;height:6px;border-radius:99px;background:rgba(255,255,255,.2)}
+.jp-prog i.ok{background:var(--rouge)}
+.jp-prog i.ici{background:#fff}
+.jp-corps{padding:22px 20px 22px}
+.jp-produit{display:flex;gap:16px;align-items:center}
+.jp-visu{flex:none;width:96px;height:96px;border-radius:18px;background:var(--beton-clair);display:grid;place-items:center;
+  background-image:linear-gradient(rgba(0,0,0,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.05) 1px,transparent 1px);background-size:12px 12px}
+.jp-visu svg{width:66px;height:66px}
+.jp-produit .mono{color:var(--rouge);font-size:.66rem}
+.jp-produit h3{font-weight:900;font-stretch:110%;text-transform:uppercase;font-size:1.15rem;line-height:1.1;margin:4px 0 4px}
+.jp-produit p{color:var(--gris);font-size:.86rem;line-height:1.35}
+.jp-form{display:flex;gap:8px;margin-top:20px}
+.jp-champ{flex:1;position:relative}
+.jp-champ input{width:100%;height:56px;border-radius:14px;border:2px solid var(--beton);background:var(--beton-clair);padding:0 44px 0 16px;font-family:var(--sans);font-weight:800;font-stretch:110%;font-size:1.4rem;color:var(--anthracite);outline:none;transition:border-color .2s}
+.jp-champ input:focus{border-color:var(--anthracite);background:#fff}
+.jp-champ span{position:absolute;right:16px;top:50%;transform:translateY(-50%);font-weight:800;font-size:1.2rem;color:var(--gris)}
+.jp-form .btn{min-height:56px;padding:0 20px}
+.jp-retour{margin-top:16px;min-height:56px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-radius:14px;padding:12px;font-weight:900;font-stretch:115%;text-transform:uppercase;font-size:1.25rem;letter-spacing:.02em;background:var(--beton-clair);color:var(--gris)}
+.jp-retour.plus,.jp-retour.moins{background:var(--anthracite);color:#fff}
+.jp-retour.chaud{background:var(--jaune);color:var(--anthracite)}
+.jp-retour.gagne{background:var(--rouge);color:#fff}
+.jp-retour.perdu{background:var(--beton);color:var(--anthracite)}
+.jp-retour small{display:block;font-family:var(--mono);font-weight:400;font-size:.7rem;line-height:1.45;letter-spacing:.02em;margin-top:6px;max-width:340px;opacity:.85;text-transform:none}
+.secoue{animation:secoue .35s}
+@keyframes secoue{20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+.jp-essais{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;min-height:28px}
+.jp-essais span{font-family:var(--mono);font-size:.74rem;padding:5px 9px;border-radius:999px;background:var(--beton-clair);color:var(--gris)}
+.jp-essais span b{color:var(--rouge)}
+.jp-pied{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:16px;padding-top:14px;border-top:1px dashed #D3D1CC}
+.jp-pied .mono{color:var(--gris);font-size:.68rem}
+.jp-pied .btn{min-height:44px;padding:10px 18px;font-size:.8rem}
+.jp-calque{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:28px;background:rgba(255,255,255,.94);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);transition:opacity .3s}
+.jp-calque.cache{opacity:0;pointer-events:none}
+.jp-calque .mono{color:var(--rouge)}
+.jp-calque .gros{font-size:clamp(1.5rem,6vw,2.1rem);font-weight:900;font-stretch:112%;text-transform:uppercase;line-height:1.05;margin:10px 0 10px}
+.jp-calque p{color:var(--gris);font-size:.95rem;max-width:300px;margin-bottom:20px}
+.jp-calque .btns{display:grid;gap:10px;width:100%;max-width:280px}
+@media(min-width:900px){.jeu{grid-template-columns:1fr 440px;gap:64px;align-items:center}}
+
+/* Fiche technique */
+.fiche-wrap{display:grid;gap:28px;align-items:start}
+.fiche{background:#fff;border-radius:var(--radius);overflow:hidden;border:2px solid var(--anthracite);box-shadow:10px 10px 0 var(--rouge)}
+.fiche-head{background:var(--anthracite);color:#fff;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.fiche-head b{font-weight:900;font-stretch:115%;text-transform:uppercase;font-size:1.1rem}
+.badge{background:var(--rouge);color:#fff;padding:5px 10px;border-radius:999px}
+.fiche table{width:100%;border-collapse:collapse}
+.fiche th,.fiche td{text-align:left;padding:14px 20px;border-bottom:1px dashed #D3D1CC;vertical-align:top;font-size:.94rem}
+.fiche th{width:38%;font-family:var(--mono);font-weight:600;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gris);padding-top:16px}
+.fiche tr:last-child th,.fiche tr:last-child td{border-bottom:none}
+.jauge{height:8px;background:var(--beton);border-radius:99px;margin-top:8px;overflow:hidden}
+.jauge span{display:block;height:100%;background:var(--rouge);width:0;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.fiche-side{display:grid;gap:14px}
+.note{background:var(--jaune);border-radius:var(--radius);padding:22px}
+.note b{font-weight:900;font-stretch:112%;text-transform:uppercase;display:block;margin-bottom:6px}
+.note p{font-size:.95rem}
+.moi{background:#fff;border-radius:var(--radius);padding:22px;border:1px solid rgba(0,0,0,.06)}
+.moi p{color:var(--gris);font-size:.96rem}
+.moi p+p{margin-top:10px}
+.moi strong{color:var(--anthracite)}
+@media(min-width:900px){.fiche-wrap{grid-template-columns:1.2fr .8fr}}
+
+/* Réalisations */
+.reals{display:grid;gap:14px}
+.real{display:block;text-decoration:none;background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid rgba(0,0,0,.06);transition:transform .25s, box-shadow .25s}
+.real:hover{transform:translateY(-4px);box-shadow:0 22px 36px -22px rgba(0,0,0,.45)}
+.real-visu{height:150px;position:relative;display:flex;align-items:flex-end;padding:16px;color:#fff;font-weight:900;font-stretch:118%;text-transform:uppercase;font-size:1.5rem;line-height:1}
+.real-visu .tag{position:absolute;top:14px;left:14px;background:rgba(255,255,255,.92);color:var(--anthracite);padding:5px 9px;border-radius:999px}
+.real-body{padding:16px 18px 18px}
+.real-body p{color:var(--gris);font-size:.9rem}
+.real-body .lien{margin-top:10px;display:inline-flex;gap:6px;font-weight:800;font-size:.82rem;text-transform:uppercase;letter-spacing:.05em;color:var(--rouge)}
+.v1{background:linear-gradient(135deg,#2F6B3A,#7DB46C)}
+.v2{background:linear-gradient(135deg,#C7861B,#F2C14E)}
+.v3{background:linear-gradient(135deg,#3B2A4F,#B88AC4)}
+.v4{background:linear-gradient(135deg,#3A2418,#9B6A47)}
+.v5{background:linear-gradient(135deg,#1E2E3A,#7C9BB0)}
+.v6{background:linear-gradient(135deg,var(--rouge-fonce),var(--rouge))}
+@media(min-width:700px){.reals{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1050px){.reals{grid-template-columns:repeat(3,1fr)}}
+
+/* Plan de chantier */
+.plan-bg{background:var(--blanc)}
+.etapes{display:grid;gap:16px;counter-reset:e}
+.etape{position:relative;padding:24px 22px 22px 22px;border-radius:var(--radius);background:var(--beton-clair);border-left:6px solid var(--rouge)}
+.etape .mono{color:var(--rouge)}
+.etape h3{font-weight:900;font-stretch:112%;text-transform:uppercase;font-size:1.3rem;margin:6px 0 10px}
+.etape ul{list-style:none;display:grid;gap:8px}
+.etape li{padding-left:26px;position:relative;font-size:.95rem;color:var(--gris)}
+.etape li::before{content:"";position:absolute;left:0;top:.45em;width:14px;height:10px;background:var(--anthracite);border-radius:2px;box-shadow:inset 0 -3px 0 rgba(0,0,0,.25)}
+.etape li strong{color:var(--anthracite)}
+@media(min-width:900px){.etapes{grid-template-columns:repeat(3,1fr)}}
+
+/* Compteurs */
+.compteurs-bg{background:var(--rouge);color:#fff;overflow:hidden}
+.compteurs{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 16px}
+.cpt b{display:block;font-weight:900;font-stretch:120%;font-size:clamp(2.4rem,9vw,4rem);line-height:1}
+.cpt span{display:block;margin-top:6px;font-size:.9rem;opacity:.9}
+.cpt.plus b{color:var(--jaune)}
+.cpt-titre{grid-column:1/-1}
+.cpt-titre h2{color:#fff}
+@media(min-width:900px){.compteurs{grid-template-columns:repeat(4,1fr)}}
+
+/* Bon de commande */
+.bon{background:#fff;border-radius:var(--radius);border:2px solid var(--anthracite);max-width:760px;margin:0 auto;overflow:hidden}
+.bon-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:18px 22px;border-bottom:2px solid var(--anthracite);background:var(--beton-clair)}
+.bon-head b{font-weight:900;font-stretch:115%;text-transform:uppercase}
+.bon-body{padding:22px}
+.ligne{display:grid;grid-template-columns:1fr;gap:2px;padding:12px 0;border-bottom:1px dashed #D3D1CC}
+.ligne .mono{color:var(--gris);font-size:.7rem}
+.ligne div:last-child{font-weight:700}
+@media(min-width:600px){.ligne{grid-template-columns:200px 1fr;align-items:baseline}}
+.bon-msg{margin:20px 0 22px;font-size:1.02rem}
+.bon-ctas{display:grid;gap:10px}
+@media(min-width:600px){.bon-ctas{grid-template-columns:repeat(3,1fr)}}
+.tampon{display:inline-block;border:3px solid var(--rouge);color:var(--rouge);padding:6px 12px;border-radius:6px;transform:rotate(-8deg);font-weight:900;font-stretch:118%;text-transform:uppercase;letter-spacing:.06em;font-size:.95rem}
+
+footer{background:var(--anthracite);color:#BDBCB8;padding:30px 0 90px;font-size:.85rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
+footer a{color:#fff}
+
+/* Barre CTA mobile */
+.barre-mobile{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;display:flex;gap:8px;transform:translateY(150%);transition:transform .35s}
+.barre-mobile.on{transform:none}
+.barre-mobile .btn{flex:1;box-shadow:0 12px 26px -10px rgba(0,0,0,.5)}
+@media(min-width:900px){.barre-mobile{display:none}footer{padding-bottom:30px}}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s, transform .7s cubic-bezier(.2,.8,.2,1)}
+.reveal.vu{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .plan-carte .trait,.plan-carte .cote{stroke-dashoffset:0}
+  .plan-carte .vitre,.plan-carte .lbl,.puce{opacity:1}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo" aria-label="Accueil">
+      <span class="logo-mark">ESTELLE</span>
+      <span class="logo-x">×</span>
+      <span class="logo-b">BONIFAY</span>
+    </a>
+    <nav class="nav-links" aria-label="Navigation principale">
+      <a href="#univers">Mes univers</a>
+      <a href="#fiche">Fiche technique</a>
+      <a href="#chantiers">Chantiers</a>
+      <a href="#plan">Plan de chantier</a>
+    </nav>
+    <div class="nav-droite">
+      <a class="pastille-jeu" href="#jeu"><span class="pj-dot"></span>Mini-jeu</a>
+      <a class="btn btn-rouge btn-sm" href="https://estellelavenac.github.io/Estelle-Lavenac/book.html" target="_blank" rel="noopener">Voir le book</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero beton">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker mono"><span class="dot"></span>Candidature spontanée · Designer graphique</span>
+      <h1>Votre com'<br>mérite des<br><span class="rouge">fondations</span> <span class="outline">solides.</span></h1>
+      <p class="hero-sub">Je suis <strong>Estelle Lavenac</strong>, designer graphique senior : <strong>print, web, motion & vidéo</strong>. 9 ans de chantiers créatifs, livrés dans les temps. Basée à Pierrefeu-du-Var, à deux pas de vos dépôts.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-rouge" href="https://estellelavenac.github.io/Estelle-Lavenac/book.html" target="_blank" rel="noopener">Voir le book →</a>
+        <a class="btn btn-ghost" href="https://estellelavenac.github.io/Estelle-Lavenac/" target="_blank" rel="noopener">Mon CV en ligne</a>
+      </div>
+    </div>
+
+    <div class="plan-visu" id="planVisu" aria-hidden="true">
+      <div class="plan-carte" id="planCarte">
+        <svg viewBox="0 0 400 400">
+          <!-- Sol -->
+          <path class="trait fin" pathLength="1" d="M28 318 H372" style="animation-delay:.1s"/>
+          <!-- Volume principal + dalle de toit -->
+          <path class="trait" pathLength="1" d="M76 318 V176 H236 V318" style="animation-delay:.3s"/>
+          <path class="trait" pathLength="1" d="M60 176 H252" style="animation-delay:.6s"/>
+          <!-- Volume secondaire -->
+          <path class="trait" pathLength="1" d="M236 318 V222 H338 V318" style="animation-delay:.7s"/>
+          <path class="trait" pathLength="1" d="M228 222 H352" style="animation-delay:.9s"/>
+          <!-- Baie vitrée + menuiseries -->
+          <rect class="vitre" x="98" y="204" width="76" height="92" rx="2" style="animation-delay:1.7s"/>
+          <path class="trait fin" pathLength="1" d="M98 204 H174 V296 H98 Z M136 204 V296" style="animation-delay:1s"/>
+          <path class="trait fin" pathLength="1" d="M192 204 H220 V246 H192 Z" style="animation-delay:1.1s"/>
+          <path class="trait fin" pathLength="1" d="M258 252 H284 V318 M258 252 V318" style="animation-delay:1.2s"/>
+          <path class="trait fin" pathLength="1" d="M300 246 H324 V280 H300 Z" style="animation-delay:1.3s"/>
+          <!-- Parpaings apparents (soubassement) -->
+          <path class="trait fin" pathLength="1" d="M76 300 H98 M174 300 H236 M76 309 H98 M174 309 H236 M88 300 V309 M196 300 V309 M216 300 V318" style="animation-delay:1.35s"/>
+          <!-- Grue -->
+          <path class="trait fin" pathLength="1" d="M312 222 V70 M296 70 H372 M312 70 L330 54 L348 70 M312 86 L328 70 M364 70 V112" style="animation-delay:1.1s"/>
+          <rect class="vitre" x="356" y="112" width="16" height="12" rx="1.5" style="animation-delay:2s"/>
+
+          <!-- Cotes -->
+          <path class="cote" pathLength="1" d="M76 148 H236 M76 141 V155 M236 141 V155" style="animation-delay:1.6s"/>
+          <text class="lbl" x="156" y="137" text-anchor="middle" style="animation-delay:2s">IDENTITÉ</text>
+          <path class="cote" pathLength="1" d="M48 176 V318 M41 176 H55 M41 318 H55" style="animation-delay:1.7s"/>
+          <text class="lbl" x="34" y="247" text-anchor="middle" transform="rotate(-90 34 247)" style="animation-delay:2.1s">PRINT</text>
+          <path class="cote" pathLength="1" d="M236 200 H338 M236 193 V207 M338 193 V207" style="animation-delay:1.8s"/>
+          <text class="lbl" x="287" y="189" text-anchor="middle" style="animation-delay:2.2s">MOTION</text>
+          <path class="cote" pathLength="1" d="M98 340 H338 M98 333 V347 M338 333 V347" style="animation-delay:1.9s"/>
+          <text class="lbl" x="196" y="358" text-anchor="middle" style="animation-delay:2.3s">WEB · VIDÉO</text>
+          <text class="lbl r" x="136" y="254" text-anchor="middle" style="animation-delay:2.3s">IDÉES</text>
+        </svg>
+        <div class="cartouche"><span>Projet <b>Bonifay</b></span><span>Éch. 1:1</span><span>Réf. <b>EL-2026</b></span></div>
+      </div>
+
+      <div class="puce puce-1"><div><span class="mono">Fiche technique</span><b>Designer graphique senior</b></div></div>
+      <div class="puce puce-3"><i></i><div><b style="font-size:.85rem">Disponible</b></div></div>
+      <div class="puce puce-2"><div><b>9 ans</b><span class="mono">de chantiers créatifs</span></div></div>
+    </div>
+  </div>
+  <div class="ruban" aria-hidden="true">
+    <div class="ruban-inner">
+      <div class="defile">
+        <span>Devis créa gratuit</span><i>■</i><span>Livraison dans les délais</span><i>■</i><span>Conseils de pro</span><i>■</i><span>Du gros œuvre aux finitions</span><i>■</i><span>Zéro malfaçon typographique</span><i>■</i><span>Charge utile : 9 ans d'expérience</span><i>■</i>
+        <span>Devis créa gratuit</span><i>■</i><span>Livraison dans les délais</span><i>■</i><span>Conseils de pro</span><i>■</i><span>Du gros œuvre aux finitions</span><i>■</i><span>Zéro malfaçon typographique</span><i>■</i><span>Charge utile : 9 ans d'expérience</span><i>■</i>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section>
+  <div class="wrap">
+    <div class="titre-section reveal">
+      <span class="mono">Les services inclus</span>
+      <h2>Comme chez vous, <em>tout est compris.</em></h2>
+    </div>
+    <div class="services">
+      <div class="service reveal">
+        <svg viewBox="0 0 48 48"><path d="M6 40h36M10 40V22l14-10 14 10v18"/><path d="M20 40V28h8v12"/></svg>
+        <b>Votre com' de A à Z</b><small>Du brief au fichier final, je gère le chantier.</small>
+      </div>
+      <div class="service reveal">
+        <svg viewBox="0 0 48 48"><path d="M4 32V14h24v18M28 20h9l7 8v4H28"/><circle cx="13" cy="35" r="4"/><circle cx="36" cy="35" r="4"/></svg>
+        <b>Livraison dans les délais</b><small>Bouclage, impression, mise en ligne : on tient le planning.</small>
+      </div>
+      <div class="service reveal">
+        <svg viewBox="0 0 48 48"><path d="M12 6h18l8 8v28H12z"/><path d="M30 6v8h8M18 24h14M18 31h14M18 17h6"/></svg>
+        <b>Devis créa gratuit</b><small>Une idée ? Je vous chiffre une piste en deux temps trois mouvements.</small>
+      </div>
+      <div class="service reveal">
+        <svg viewBox="0 0 48 48"><circle cx="24" cy="16" r="8"/><path d="M8 42c2-9 8-14 16-14s14 5 16 14"/></svg>
+        <b>Conseils de pro</b><small>Hiérarchie, lisibilité, impact : je vous dis ce qui tient debout.</small>
+      </div>
+      <div class="service reveal">
+        <svg viewBox="0 0 48 48"><path d="M8 38h32M14 38V18h20v20M14 26h20M20 18v-6h8v6"/></svg>
+        <b>Aide au chargement</b><small>Fichiers lourds, exports, prépresse : c'est moi qui porte.</small>
+      </div>
+      <div class="service reveal">
+        <svg viewBox="0 0 48 48"><path d="M10 38 38 10M30 10h8v8M10 30v8h8"/><path d="M24 6v6M6 24h6"/></svg>
+        <b>Solutions sur mesure</b><small>Un format, une agence, une cible : chaque créa est coupée à la bonne cote.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UNIVERS -->
+<section id="univers" class="univers-bg">
+  <div class="wrap">
+    <div class="titre-section reveal">
+      <span class="mono" style="color:var(--jaune)">Mes univers</span>
+      <h2>Tout le matériel créa, <em>en un seul dépôt.</em></h2>
+      <p class="intro">Vous couvrez la construction de la carrière aux finitions. Moi, je couvre la communication de l'identité à la vidéo.</p>
+    </div>
+    <div class="univers">
+      <article class="u-card reveal"><span class="num">01</span><span class="mono">Gros œuvre</span><h3>Identité & charte</h3><p>Logos, chartes, déclinaisons : la dalle sur laquelle tout le reste repose.</p></article>
+      <article class="u-card reveal"><span class="num">02</span><span class="mono">Préfabrication</span><h3>Print & édition</h3><p>Catalogues, flyers promo, PLV agence, affichage. Prépresse maîtrisé, zéro surprise au calage.</p></article>
+      <article class="u-card reveal"><span class="num">03</span><span class="mono">Second œuvre</span><h3>Web & UI</h3><p>Landing pages, newsletters, interfaces : des pages claires qui donnent envie d'ouvrir un compte pro.</p></article>
+      <article class="u-card reveal"><span class="num">04</span><span class="mono">Toupie & pompe</span><h3>Motion design</h3><p>Des formats animés qui tournent en continu, comme vos malaxeurs sur la route.</p></article>
+      <article class="u-card reveal"><span class="num">05</span><span class="mono">Livraison sur chantier</span><h3>Vidéo</h3><p>Tournage et montage : réalisations clients, coulisses des usines, portraits d'équipes.</p></article>
+      <article class="u-card reveal"><span class="num">06</span><span class="mono">Finitions</span><h3>Réseaux sociaux</h3><p>Posts, stories, réels : la touche finale qui fait briller les réalisations.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- FICHE TECHNIQUE -->
+<section id="fiche">
+  <div class="wrap">
+    <div class="titre-section reveal">
+      <span class="mono">Documentation</span>
+      <h2>Fiche produit : <em>Estelle Lavenac</em></h2>
+    </div>
+    <div class="fiche-wrap">
+      <div class="fiche reveal">
+        <div class="fiche-head"><b>Designer graphique senior</b><span class="badge mono">Réf. EL-2026</span></div>
+        <table>
+          <tr><th>Composition</th><td>Print, web, motion design & vidéo. Mélange homogène, sans grumeaux.</td></tr>
+          <tr><th>Expérience</th><td>9 ans de chantiers créatifs
+            <div class="jauge"><span data-w="90%"></span></div></td></tr>
+          <tr><th>Résistance</th><td>Haute résistance aux deadlines serrées et aux « petites modifs de dernière minute ».
+            <div class="jauge"><span data-w="96%"></span></div></td></tr>
+          <tr><th>Mise en œuvre</th><td>S'intègre à toute équipe marketing. Prise rapide, aucun temps de séchage.</td></tr>
+          <tr><th>Outils</th><td>Suite Adobe (InDesign, Illustrator, Photoshop, After Effects, Premiere), Figma.</td></tr>
+          <tr><th>Zone de livraison</th><td>Pierrefeu-du-Var · environ 20 min de La Garde.</td></tr>
+          <tr><th>Disponibilité</th><td><strong style="color:var(--rouge)">En stock. Enlèvement immédiat.</strong></td></tr>
+        </table>
+      </div>
+      <div class="fiche-side">
+        <div class="note reveal">
+          <b>Le mot du technico-commercial</b>
+          <p>Bonifay accompagne le bâtiment depuis 1946. Moi, je veux accompagner sa communication pour les 80 prochaines années (ou au moins les prochaines).</p>
+        </div>
+        <div class="moi reveal">
+          <p><strong>Pourquoi Bonifay ?</strong> Parce qu'une entreprise familiale varoise qui maîtrise toute sa chaîne, de la carrière au camion, c'est rare. Et que vos univers (carrelage, piscine, terrasse, gros œuvre) sont un terrain de jeu visuel énorme.</p>
+          <p><strong>Pourquoi moi ?</strong> Parce que je sais passer d'un catalogue de 80 pages à un réel de 15 secondes sans changer de casque de chantier.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REALISATIONS -->
+<section id="chantiers" style="background:var(--beton)">
+  <div class="wrap">
+    <div class="titre-section reveal">
+      <span class="mono">Nos réalisations</span>
+      <h2>Quelques <em>chantiers livrés.</em></h2>
+      <p class="intro">Un aperçu des projets de mon book. Visite de chantier complète sur la page dédiée.</p>
+    </div>
+    <div class="reals">
+      <a class="real reveal" href="https://estellelavenac.github.io/Estelle-Lavenac/book.html" target="_blank" rel="noopener">
+        <div class="real-visu v1"><span class="tag mono">Print · Catalogue</span>Mon Petit Vert</div>
+        <div class="real-body"><p>Catalogue pour une jardinerie, avec mises en situation. Terrasse & jardin, ça vous parle ?</p><span class="lien">Voir dans le book →</span></div>
+      </a>
+      <a class="real reveal" href="https://estellelavenac.github.io/Estelle-Lavenac/book.html" target="_blank" rel="noopener">
+        <div class="real-visu v2"><span class="tag mono">Packaging</span>Mon pot de miel</div>
+        <div class="real-body"><p>Packaging pour un producteur de miel. Du produit brut au produit fini.</p><span class="lien">Voir dans le book →</span></div>
+      </a>
+      <a class="real reveal" href="https://estellelavenac.github.io/Estelle-Lavenac/book.html" target="_blank" rel="noopener">
+        <div class="real-visu v3"><span class="tag mono">Identité</span>Peau Cible</div>
+        <div class="real-body"><p>Charte graphique d'une marque de sérums : système complet, déclinable partout.</p><span class="lien">Voir dans le book →</span></div>
+      </a>
+      <a class="real reveal" href="https://estellelavenac.github.io/Estelle-Lavenac/book.html" target="_blank" rel="noopener">
+        <div class="real-visu v4"><span class="tag mono">Web · Vidéo</span>Juste cofee</div>
+        <div class="real-body"><p>Site immersif au scroll, construit autour d'une vidéo d'expresso tournée maison.</p><span class="lien">Voir dans le book →</span></div>
+      </a>
+      <a class="real reveal" href="https://estellelavenac.github.io/Estelle-Lavenac/book.html" target="_blank" rel="noopener">
+        <div class="real-visu v5"><span class="tag mono">Web 3D</span>Et sens</div>
+        <div class="real-body"><p>Site immersif 3D pour une maison de parfum. Preuve qu'on peut bâtir des expériences.</p><span class="lien">Voir dans le book →</span></div>
+      </a>
+      <a class="real reveal" href="https://estellelavenac.github.io/Estelle-Lavenac/book.html" target="_blank" rel="noopener">
+        <div class="real-visu v6"><span class="tag mono">Tout le stock</span>Le book complet</div>
+        <div class="real-body"><p>Tous les projets, rangés par univers, comme dans vos agences.</p><span class="lien">Ouvrir le book →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN DE CHANTIER -->
+<section id="plan" class="plan-bg">
+  <div class="wrap">
+    <div class="titre-section reveal">
+      <span class="mono">Vous avez un projet ?</span>
+      <h2>Mon plan de chantier <em>chez Bonifay.</em></h2>
+      <p class="intro">Quelques idées que j'aimerais couler dans le béton avec l'équipe marketing.</p>
+    </div>
+    <div class="etapes">
+      <div class="etape reveal">
+        <span class="mono">Phase 1</span>
+        <h3>Fondations</h3>
+        <ul>
+          <li><strong>Charte modernisée</strong> : garder le rouge Bonifay, rafraîchir typos et gabarits.</li>
+          <li><strong>Kit agences</strong> : affiches promo et PLV prêtes à décliner pour les 14 agences.</li>
+        </ul>
+      </div>
+      <div class="etape reveal">
+        <span class="mono">Phase 2</span>
+        <h3>Élévation</h3>
+        <ul>
+          <li><strong>Catalogues</strong> type « Tendances Carrelage » repensés, plus inspirants.</li>
+          <li><strong>Expérience Carrelage</strong> : une identité showroom qui donne envie de rénover.</li>
+        </ul>
+      </div>
+      <div class="etape reveal">
+        <span class="mono">Phase 3</span>
+        <h3>Finitions</h3>
+        <ul>
+          <li><strong>Vidéos de réalisations</strong> : de la toupie à la piscine finie, en format court.</li>
+          <li><strong>Réseaux sociaux</strong> : des contenus qui montrent l'humain derrière les 200 camions.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPTEURS -->
+<section class="compteurs-bg beton">
+  <div class="wrap compteurs">
+    <div class="cpt-titre reveal">
+      <span class="mono" style="color:var(--jaune);display:block;margin-bottom:10px">Chiffres clés</span>
+      <h2>Plus de 340 collaborateurs.<br>Et si on passait à <span style="color:var(--jaune)">341</span> ?</h2>
+    </div>
+    <div class="cpt reveal"><b data-n="1946">0</b><span>Au service du bâtiment depuis</span></div>
+    <div class="cpt reveal"><b data-n="200">0</b><span>Camions sur les routes du Var</span></div>
+    <div class="cpt reveal"><b data-n="14">0</b><span>Agences en libre-service</span></div>
+    <div class="cpt plus reveal"><b data-n="1" data-prefix="+">0</b><span>Designer prête à monter à bord</span></div>
+  </div>
+</section>
+
+<!-- BON DE COMMANDE -->
+<section id="contact">
+  <div class="wrap">
+    <div class="titre-section reveal" style="text-align:center">
+      <span class="mono">Commande à distance</span>
+      <h2>Parlons-en <em>!</em></h2>
+    </div>
+    <div class="bon reveal">
+      <div class="bon-head"><b>Bon de commande n° 0341</b><span class="tampon">Urgent</span></div>
+      <div class="bon-body">
+        <div class="ligne"><div class="mono">Destinataire</div><div>Audrey Loiseau, Directrice Marketing · Groupe Bonifay</div></div>
+        <div class="ligne"><div class="mono">Article</div><div>1 designer graphique senior (print, web, motion & vidéo)</div></div>
+        <div class="ligne"><div class="mono">Conditionnement</div><div>Livrée avec 9 ans d'expérience et beaucoup de bonne humeur</div></div>
+        <div class="ligne"><div class="mono">Délai</div><div>Disponible tout de suite</div></div>
+        <div class="ligne"><div class="mono">Prix</div><div>Un café et un entretien ☕</div></div>
+        <p class="bon-msg">Je serais ravie d'échanger avec vous sur vos projets de communication. Un appel de 15 minutes suffit pour poser la première pierre.</p>
+        <div class="bon-ctas">
+          <a class="btn btn-rouge" href="https://estellelavenac.github.io/Estelle-Lavenac/book.html" target="_blank" rel="noopener">Voir le book</a>
+          <a class="btn btn-ghost" href="https://estellelavenac.github.io/Estelle-Lavenac/" target="_blank" rel="noopener">CV en ligne</a>
+          <a class="btn btn-ghost" href="mailto:estelle.lavenac@gmail.com?subject=Candidature%20Bonifay%20%E2%80%93%20Estelle%20Lavenac">M'écrire</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MINI-JEU -->
+<section id="jeu" class="jeu-bg">
+  <div class="wrap jeu">
+    <div class="jeu-texte reveal">
+      <div class="titre-section" style="margin-bottom:0">
+        <span class="mono">Pause chantier</span>
+        <h2>Le juste prix <em>du chantier.</em></h2>
+        <p class="intro">Sac de ciment, parpaing, toupie de béton… Vous les vendez tous les jours. Mais connaissez-vous leur prix par cœur ?</p>
+      </div>
+      <ul class="regles">
+        <li><b>01</b>Un produit, un prix à deviner.</li>
+        <li><b>02</b>« C'est plus ! », « C'est moins ! » : 6 essais par produit.</li>
+        <li><b>03</b>Moins vous tentez, plus vous marquez de points.</li>
+      </ul>
+      <div class="scores">
+        <div><span class="mono">Dernière partie</span><strong id="sc-dernier">0</strong></div>
+        <div><span class="mono">Record</span><strong id="sc-record" style="color:var(--rouge)">0</strong></div>
+      </div>
+      <p class="avert">Prix publics moyens constatés en 2026 dans le négoce et le bricolage, pas les tarifs Bonifay. Les vrais, c'est en agence.</p>
+    </div>
+
+    <div class="jp reveal" id="jp">
+      <div class="jp-head">
+        <div><span class="mono" id="jp-num">Produit 1 / 5</span><b>Le juste prix</b></div>
+        <div class="jp-prog" id="jp-prog"></div>
+      </div>
+      <div class="jp-corps">
+        <div class="jp-produit">
+          <div class="jp-visu" id="jp-visu"></div>
+          <div>
+            <span class="mono" id="jp-univers">Gros œuvre</span>
+            <h3 id="jp-nom">Sac de ciment</h3>
+            <p id="jp-desc">35 kg</p>
+          </div>
+        </div>
+        <div class="jp-form" id="jp-form">
+          <label class="jp-champ"><span class="sr" style="position:absolute;left:-9999px">Votre prix en euros</span>
+            <input id="jp-input" type="text" inputmode="decimal" enterkeyhint="go" autocomplete="off" placeholder="0,00" aria-label="Votre prix en euros"><span>€</span>
+          </label>
+          <button class="btn btn-rouge" type="button" id="jp-ok">OK</button>
+        </div>
+        <div class="jp-retour" id="jp-retour" aria-live="polite">À vous de jouer</div>
+        <div class="jp-essais" id="jp-essais"></div>
+        <div class="jp-pied">
+          <span class="mono" id="jp-reste">6 essais restants</span>
+          <span class="mono">Score : <b id="jp-score" style="color:var(--anthracite)">0</b></span>
+        </div>
+      </div>
+
+      <div class="jp-calque" id="jp-calque">
+        <span class="mono" id="jpc-k">Pause chantier</span>
+        <div class="gros" id="jpc-t">Le juste prix du chantier</div>
+        <p id="jpc-p">5 produits, 6 essais chacun. Prêt·e à chiffrer ?</p>
+        <div class="btns" id="jpc-btns"><button class="btn btn-rouge" type="button" id="jp-jouer">Lancer la partie</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Estelle Lavenac · Designer graphique senior · Pierrefeu-du-Var (83)</span>
+    <span>Page réalisée pour le Groupe Bonifay · <a href="https://estellelavenac.github.io/Estelle-Lavenac/" target="_blank" rel="noopener">CV en ligne</a></span>
+  </div>
+</footer>
+
+<div class="barre-mobile" id="barre">
+  <a class="btn btn-rouge" href="https://estellelavenac.github.io/Estelle-Lavenac/book.html" target="_blank" rel="noopener">Voir le book</a>
+  <a class="btn btn-blanc" href="#contact">Me contacter</a>
+</div>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Reveal + jauges + compteurs
+  function compter(el){
+    var cible = parseInt(el.getAttribute('data-n'),10), pre = el.getAttribute('data-prefix')||'';
+    if(reduce){ el.textContent = pre + cible; return; }
+    var debut = cible > 1000 ? 1900 : 0, t0 = null, d = 1400;
+    function pas(t){ if(!t0) t0 = t; var p = Math.min((t - t0)/d, 1), e = 1 - Math.pow(1 - p, 3);
+      el.textContent = pre + Math.round(debut + (cible - debut) * e);
+      if(p < 1) requestAnimationFrame(pas); }
+    requestAnimationFrame(pas);
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(!en.isIntersecting) return;
+      var el = en.target;
+      el.classList.add('vu');
+      el.querySelectorAll('.jauge span').forEach(function(j){ j.style.width = j.getAttribute('data-w'); });
+      var n = el.querySelector('[data-n]'); if(n) compter(n);
+      io.unobserve(el);
+    });
+  }, {threshold:.18});
+  document.querySelectorAll('.reveal').forEach(function(el, i){
+    el.style.transitionDelay = (i % 3) * 80 + 'ms';
+    io.observe(el);
+  });
+
+  // Inclinaison douce du plan au survol (ordinateur uniquement)
+  var visu = document.getElementById('planVisu'), carte = document.getElementById('planCarte');
+  if(!reduce && window.matchMedia('(hover: hover)').matches){
+    visu.addEventListener('mousemove', function(e){
+      var r = visu.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+      carte.style.transform = 'rotateY(' + (x * 8) + 'deg) rotateX(' + (-y * 8) + 'deg)';
+    });
+    visu.addEventListener('mouseleave', function(){ carte.style.transform = ''; });
+  }
+
+
+  /* ---------- Mini-jeu : Le Juste Prix ---------- */
+  var ICONES = {
+    sac:'<svg viewBox="0 0 64 64" fill="none" stroke="#2B2B2A" stroke-width="2.4" stroke-linejoin="round"><path d="M16 12h32l4 8v34a4 4 0 0 1-4 4H16a4 4 0 0 1-4-4V20z"/><path d="M12 20h40"/><rect x="20" y="28" width="24" height="14" rx="2" fill="#E2001A" stroke="none"/><path d="M24 35h16" stroke="#fff"/></svg>',
+    parpaing:'<svg viewBox="0 0 64 64" fill="none" stroke="#2B2B2A" stroke-width="2.4" stroke-linejoin="round"><path d="M8 24l12-8h36v24l-12 8H8z"/><path d="M8 24h36v24M44 24l12-8"/><rect x="13" y="29" width="10" height="14" rx="1.5" fill="#E2001A" stroke="none"/><rect x="29" y="29" width="10" height="14" rx="1.5" fill="#E2001A" stroke="none"/></svg>',
+    plaque:'<svg viewBox="0 0 64 64" fill="none" stroke="#2B2B2A" stroke-width="2.4" stroke-linejoin="round"><path d="M18 6h28v52H18z"/><path d="M46 6l4 3v52l-4-3"/><path d="M24 50h16" stroke="#E2001A" stroke-width="3"/><path d="M24 14h10" stroke="#E2001A" stroke-width="3"/></svg>',
+    toupie:'<svg viewBox="0 0 64 64" fill="none" stroke="#2B2B2A" stroke-width="2.4" stroke-linejoin="round"><path d="M4 44V30h12l4-6h4v20"/><path d="M24 44h34V40"/><ellipse cx="40" cy="30" rx="16" ry="10" fill="#E2001A" stroke="#2B2B2A"/><path d="M30 24l20 12M34 21l18 10" stroke="#fff"/><circle cx="14" cy="47" r="5" fill="#fff"/><circle cx="46" cy="47" r="5" fill="#fff"/></svg>',
+    designer:'<svg viewBox="0 0 64 64" fill="none" stroke="#2B2B2A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><path d="M14 30a18 18 0 0 1 36 0z" fill="#E2001A" stroke="#2B2B2A"/><path d="M10 30h44"/><path d="M32 12v-4"/><circle cx="32" cy="42" r="10" fill="#fff"/><path d="M28 41h0M36 41h0" stroke-width="3.5"/><path d="M28 46c2 2 6 2 8 0"/></svg>'
+  };
+  var PRODUITS = [
+    {nom:'Sac de ciment', desc:'Ciment gris CEM II 32,5 · sac de 35 kg', univers:'Gros œuvre', ico:'sac', prix:9.30, tol:.1, mot:'Le prix d\'un bon point de départ.'},
+    {nom:'Parpaing creux', desc:'Bloc béton 20 × 20 × 50 cm · à l\'unité', univers:'Construction', ico:'parpaing', prix:1.25, tol:.12, mot:'Petit prix, gros rôle. Comme une bonne charte.'},
+    {nom:'Plaque de plâtre', desc:'BA13 standard 250 × 120 cm · à la plaque', univers:'Cloison & plafond', ico:'plaque', prix:7.50, tol:.1, mot:'Lisse, droite, prête à décorer.'},
+    {nom:'Béton prêt à l\'emploi', desc:'1 m³ livré en toupie sur chantier', univers:'Toupie & pompe', ico:'toupie', prix:180, tol:.15, mot:'Les prix varient de 120 à 240 € selon le béton et le chantier.'},
+    {nom:'Designer graphique senior', desc:'Print, web, motion & vidéo · 9 ans d\'expérience · disponible', univers:'Arrivage spécial', ico:'designer', prix:null}
+  ];
+  var MAX = 6;
+  var jp = document.getElementById('jp'), jpForm = document.getElementById('jp-form'), jpIn = document.getElementById('jp-input');
+  var jpRetour = document.getElementById('jp-retour'), jpEssais = document.getElementById('jp-essais'), jpReste = document.getElementById('jp-reste');
+  var jpScoreEl = document.getElementById('jp-score'), jpProg = document.getElementById('jp-prog'), jpCalque = document.getElementById('jp-calque');
+  var elDernier = document.getElementById('sc-dernier'), elRecord = document.getElementById('sc-record');
+  var idx = 0, essais = 0, score = 0, fini = false, record = 0, enCours = false;
+  try { record = parseInt(localStorage.getItem('bonifay-jp-record') || '0', 10) || 0; } catch(e) {}
+  elRecord.textContent = record;
+
+  function euros(n){ return n.toLocaleString('fr-FR', {minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2}) + ' €'; }
+  function retour(cls, txt, sous){
+    jpRetour.className = 'jp-retour ' + (cls || '');
+    jpRetour.innerHTML = txt + (sous ? '<small>' + sous + '</small>' : '');
+  }
+  function majProg(){
+    jpProg.innerHTML = PRODUITS.map(function(_, i){ return '<i class="' + (i < idx ? 'ok' : i === idx ? 'ici' : '') + '"></i>'; }).join('');
+  }
+  function charger(){
+    var p = PRODUITS[idx];
+    essais = 0; fini = false;
+    document.getElementById('jp-num').textContent = 'Produit ' + (idx + 1) + ' / ' + PRODUITS.length;
+    document.getElementById('jp-visu').innerHTML = ICONES[p.ico].replace(/#E2001A/g, getComputedStyle(document.documentElement).getPropertyValue('--rouge').trim() || '#E2001A');
+    document.getElementById('jp-univers').textContent = p.univers;
+    document.getElementById('jp-nom').textContent = p.nom;
+    document.getElementById('jp-desc').textContent = p.desc;
+    jpEssais.innerHTML = ''; jpIn.value = ''; jpIn.disabled = false;
+    document.getElementById('jp-ok').textContent = 'OK';
+    jpReste.textContent = MAX + ' essais restants';
+    retour('', p.prix === null ? 'Dernier produit : à vous de chiffrer' : 'À vous de jouer');
+    majProg();
+  }
+  function suivant(){
+    idx++;
+    if(idx >= PRODUITS.length){ finPartie(); return; }
+    charger();
+    if(window.matchMedia('(hover: hover)').matches) jpIn.focus();
+  }
+  function finPartie(){
+    enCours = false;
+    elDernier.textContent = score;
+    var rec = score > record;
+    if(rec){ record = score; elRecord.textContent = record; try { localStorage.setItem('bonifay-jp-record', record); } catch(e) {} }
+    var t, m;
+    if(score >= 380){ t = 'Chef de dépôt'; m = 'Vous connaissez vos tarifs sur le bout des doigts. Il ne manque plus qu\'une designer pour les mettre en valeur.'; }
+    else if(score >= 220){ t = 'Bon technico-commercial'; m = 'Belle estimation ! Côté communication, je m\'occupe du chiffrage créatif.'; }
+    else { t = 'Devis à revoir'; m = 'Pas grave : les prix, c\'est votre métier. Les visuels qui les font vendre, c\'est le mien.'; }
+    document.getElementById('jpc-k').textContent = (rec ? 'Nouveau record · ' : '') + score + ' points';
+    document.getElementById('jpc-t').textContent = t;
+    document.getElementById('jpc-p').textContent = m;
+    document.getElementById('jpc-btns').innerHTML =
+      '<a class="btn btn-rouge" href="https://estellelavenac.github.io/Estelle-Lavenac/book.html" target="_blank" rel="noopener">Voir le book</a>' +
+      '<button class="btn btn-ghost" type="button" id="jp-rejouer">Rejouer</button>';
+    document.getElementById('jp-rejouer').addEventListener('click', lancer);
+    jpCalque.classList.remove('cache');
+  }
+  function lancer(){
+    idx = 0; score = 0; jpScoreEl.textContent = '0'; enCours = true;
+    charger(); jpCalque.classList.add('cache');
+    if(window.matchMedia('(hover: hover)').matches) setTimeout(function(){ jpIn.focus(); }, 300);
+  }
+  function secouer(){ jpRetour.classList.remove('secoue'); void jpRetour.offsetWidth; jpRetour.classList.add('secoue'); }
+
+  function valider(){
+    if(!enCours) return;
+    if(fini){ suivant(); return; }
+    var p = PRODUITS[idx];
+    var brut = jpIn.value.replace(/\s/g, '').replace('€', '').replace(',', '.');
+    var v = parseFloat(brut);
+    if(isNaN(v) || v <= 0){ retour('', 'Un prix, svp', 'Exemple : 12,50'); secouer(); return; }
+
+    // Dernier produit : la designer
+    if(p.prix === null){
+      fini = true; jpIn.disabled = true; score += 100; jpScoreEl.textContent = score;
+      jpEssais.innerHTML = '<span>' + euros(v) + '</span>';
+      retour('gagne', 'Inestimable', 'Mais négociable autour d\'un café et d\'un entretien. +100 points offerts');
+      document.getElementById('jp-ok').textContent = 'Résultat';
+      jpReste.textContent = 'Produit livré';
+      return;
+    }
+
+    essais++;
+    var ecart = (v - p.prix) / p.prix;
+    var puce = document.createElement('span');
+    if(Math.abs(ecart) <= p.tol){
+      var pts = Math.max(100 - (essais - 1) * 15, 25);
+      score += pts; jpScoreEl.textContent = score; fini = true; jpIn.disabled = true;
+      puce.innerHTML = euros(v) + ' <b>✓</b>';
+      jpEssais.appendChild(puce);
+      retour('gagne', (essais === 1 ? 'Du premier coup !' : 'Le juste prix !'), 'Prix moyen : ' + euros(p.prix) + ' · +' + pts + ' pts · ' + p.mot);
+      document.getElementById('jp-ok').textContent = idx === PRODUITS.length - 1 ? 'Résultat' : 'Suivant';
+      jpReste.textContent = 'Trouvé en ' + essais + ' essai' + (essais > 1 ? 's' : '');
+      return;
+    }
+    var plus = v < p.prix;
+    puce.innerHTML = euros(v) + ' <b>' + (plus ? '↑' : '↓') + '</b>';
+    jpEssais.appendChild(puce);
+    var chaud = Math.abs(ecart) <= .3;
+    if(essais >= MAX){
+      fini = true; jpIn.disabled = true;
+      retour('perdu', 'Chantier non livré', 'Le prix moyen était de ' + euros(p.prix) + '. ' + p.mot);
+      document.getElementById('jp-ok').textContent = 'Suivant';
+      jpReste.textContent = '0 essai restant';
+      return;
+    }
+    retour(chaud ? 'chaud' : (plus ? 'plus' : 'moins'), plus ? 'C\'est plus !' : 'C\'est moins !', chaud ? 'Ça chauffe, vous y êtes presque' : '');
+    secouer();
+    jpReste.textContent = (MAX - essais) + ' essai' + (MAX - essais > 1 ? 's' : '') + ' restant' + (MAX - essais > 1 ? 's' : '');
+    jpIn.value = ''; jpIn.focus();
+  }
+  document.getElementById('jp-ok').addEventListener('click', function(e){ e.preventDefault(); valider(); });
+  jpIn.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); valider(); } });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' && enCours && fini && document.activeElement !== jpIn){ var r = jp.getBoundingClientRect(); if(r.top < window.innerHeight && r.bottom > 0){ e.preventDefault(); valider(); } }
+  });
+  document.getElementById('jp-jouer').addEventListener('click', lancer);
+  charger();
+
+  // Barre CTA mobile après le hero
+  var barre = document.getElementById('barre'), hero = document.querySelector('.hero'), contact = document.getElementById('contact');
+  function maj(){
+    var apresHero = hero.getBoundingClientRect().bottom < 0;
+    var surContact = contact.getBoundingClientRect().top < window.innerHeight * .6;
+    var rj = document.getElementById('jeu').getBoundingClientRect();
+    var surJeu = rj.top < window.innerHeight * .7 && rj.bottom > window.innerHeight * .3;
+    barre.classList.toggle('on', apresHero && !surContact && !surJeu);
+  }
+  window.addEventListener('scroll', maj, {passive:true}); maj();
+})();
+</script>
+</body>
+</html>
