@@ -973,14 +973,21 @@ body.modale-ouverte{overflow:hidden}
       })
     }).then(function(r){ return r.json().then(function(d){ return {ok: r.ok, d: d}; }); })
       .then(function(res){
-        if(!res.ok || (res.d && (res.d.success === false || res.d.success === 'false'))) throw new Error('envoi');
+        if(!res.ok || (res.d && (res.d.success === false || res.d.success === 'false'))){
+          var msg = (res.d && res.d.message) || '';
+          var err = new Error(msg); err.activation = /activ/i.test(msg); throw err;
+        }
         mfCorps.style.display = 'none'; mfMerci.classList.add('on');
         champs.nom.value = champs.email.value = champs.message.value = '';
         document.getElementById('mf-ok').focus();
       })
-      .catch(function(){
+      .catch(function(err){
         mfStatut.className = 'mf-statut ko';
-        mfStatut.innerHTML = 'Oups, le message n\'est pas parti. Vous pouvez m\'écrire directement : <a href="' + MAILTO + '">estelle.lavenac@gmail.com</a>';
+        if(err && err.activation){
+          mfStatut.innerHTML = 'Formulaire pas encore activé : un e-mail d\'activation vient d\'être envoyé à estelle.lavenac@gmail.com. En attendant : <a href="' + MAILTO + '">écrire directement</a>';
+        } else {
+          mfStatut.innerHTML = 'Oups, le message n\'est pas parti' + (err && err.message && err.message !== 'Failed to fetch' ? ' (' + err.message + ')' : '') + '. Vous pouvez m\'écrire directement : <a href="' + MAILTO + '">estelle.lavenac@gmail.com</a>';
+        }
       })
       .then(function(){ mfBtn.disabled = false; mfBtn.textContent = 'Envoyer !'; });
   }
