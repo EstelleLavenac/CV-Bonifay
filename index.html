@@ -296,6 +296,40 @@ footer a{color:#fff}
 .barre-mobile .btn{flex:1;box-shadow:0 12px 26px -10px rgba(0,0,0,.5)}
 @media(min-width:900px){.barre-mobile{display:none}footer{padding-bottom:30px}}
 
+
+/* Formulaire de contact (modale) */
+.modale{position:fixed;inset:0;z-index:100;display:flex;align-items:flex-end;justify-content:center;padding:0;background:rgba(20,20,19,.55);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .25s}
+.modale.ouverte{opacity:1;pointer-events:auto}
+.modale-carte{position:relative;width:100%;max-width:560px;max-height:92vh;overflow:auto;background:#fff;border-radius:22px 22px 0 0;transform:translateY(30px);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.modale.ouverte .modale-carte{transform:none}
+@media(min-width:640px){.modale{align-items:center;padding:20px}.modale-carte{border-radius:22px;border:2px solid var(--anthracite)}}
+.mf-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:20px 22px 16px;background:var(--beton-clair);border-bottom:2px solid var(--anthracite)}
+.mf-head .mono{color:var(--rouge);font-size:.68rem;display:block}
+.mf-head h3{font-weight:700;text-transform:uppercase;font-size:1.5rem;line-height:1.05;margin-top:4px}
+.mf-fermer{flex:none;width:44px;height:44px;border-radius:50%;border:none;background:#fff;color:var(--anthracite);font-size:1.4rem;line-height:1;cursor:pointer;box-shadow:inset 0 0 0 1.5px var(--anthracite)}
+.mf-fermer:hover{background:var(--anthracite);color:#fff}
+.mf-corps{padding:20px 22px 24px;display:grid;gap:14px}
+.mf-champ{display:grid;gap:6px}
+.mf-champ label{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gris)}
+.mf-champ input,.mf-champ textarea{width:100%;border:2px solid var(--beton);background:var(--beton-clair);border-radius:12px;padding:13px 14px;font-family:var(--sans);font-size:16px;color:var(--anthracite);outline:none;transition:border-color .2s, background .2s}
+.mf-champ textarea{min-height:130px;resize:vertical;line-height:1.5}
+.mf-champ input:focus,.mf-champ textarea:focus{border-color:var(--anthracite);background:#fff}
+.mf-champ.erreur input,.mf-champ.erreur textarea{border-color:var(--rouge)}
+.mf-err{font-size:.8rem;color:var(--rouge);min-height:0}
+.mf-pot{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.mf-envoyer{width:100%;font-size:1rem;min-height:54px}
+.mf-envoyer[disabled]{opacity:.6;cursor:wait}
+.mf-note{font-size:.8rem;color:var(--gris);text-align:center}
+.mf-statut{display:none;border-radius:12px;padding:12px 14px;font-size:.92rem}
+.mf-statut.ko{display:block;background:#FDECEE;color:var(--rouge-fonce)}
+.mf-statut a{color:inherit;font-weight:600}
+.mf-merci{display:none;padding:34px 22px 30px;text-align:center}
+.mf-merci.on{display:block}
+.mf-merci .tampon{margin-bottom:16px}
+.mf-merci h3{font-weight:700;text-transform:uppercase;font-size:1.7rem;line-height:1.05;margin-bottom:10px}
+.mf-merci p{color:var(--gris);max-width:360px;margin:0 auto 22px}
+body.modale-ouverte{overflow:hidden}
+
 /* Reveal */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s, transform .7s cubic-bezier(.2,.8,.2,1)}
 .reveal.vu{opacity:1;transform:none}
@@ -594,7 +628,7 @@ footer a{color:#fff}
         <div class="bon-ctas">
           <a class="btn btn-rouge" href="https://estellelavenac.github.io/Estelle-Lavenac/book.html" target="_blank" rel="noopener">Voir le book</a>
           <a class="btn btn-ghost" href="https://estellelavenac.github.io/Estelle-Lavenac/" target="_blank" rel="noopener">CV en ligne</a>
-          <a class="btn btn-ghost" href="mailto:estelle.lavenac@gmail.com?subject=Candidature%20Bonifay%20%E2%80%93%20Estelle%20Lavenac">M'écrire</a>
+          <a class="btn btn-ghost js-ouvrir-form" href="mailto:estelle.lavenac@gmail.com?subject=Candidature%20Bonifay%20%E2%80%93%20Estelle%20Lavenac">M'écrire</a>
         </div>
       </div>
     </div>
@@ -668,6 +702,31 @@ footer a{color:#fff}
     <span>Page réalisée pour le Groupe Bonifay · <a href="https://estellelavenac.github.io/Estelle-Lavenac/" target="_blank" rel="noopener">CV en ligne</a></span>
   </div>
 </footer>
+
+
+<div class="modale" id="modale" role="dialog" aria-modal="true" aria-labelledby="mf-titre" aria-hidden="true">
+  <div class="modale-carte">
+    <div class="mf-head">
+      <div><span class="mono">Bon de commande n° 0341</span><h3 id="mf-titre">Écrivez-moi</h3></div>
+      <button class="mf-fermer" type="button" id="mf-fermer" aria-label="Fermer le formulaire">×</button>
+    </div>
+    <div class="mf-corps" id="mf-corps">
+      <div class="mf-champ"><label for="mf-nom">Votre nom</label><input id="mf-nom" type="text" autocomplete="name" placeholder="Audrey Loiseau"><span class="mf-err" id="mf-nom-err"></span></div>
+      <div class="mf-champ"><label for="mf-email">Votre e-mail</label><input id="mf-email" type="email" inputmode="email" autocomplete="email" placeholder="vous@bonifay.fr"><span class="mf-err" id="mf-email-err"></span></div>
+      <div class="mf-champ"><label for="mf-message">Votre message</label><textarea id="mf-message" placeholder="Bonjour Estelle, on se fait ce café ?"></textarea><span class="mf-err" id="mf-message-err"></span></div>
+      <div class="mf-pot" aria-hidden="true"><label for="mf-site">Ne pas remplir</label><input id="mf-site" type="text" tabindex="-1" autocomplete="off"></div>
+      <div class="mf-statut" id="mf-statut" role="alert"></div>
+      <button class="btn btn-rouge mf-envoyer" type="button" id="mf-envoyer">Envoyer !</button>
+      <p class="mf-note">Votre message arrive directement dans ma boîte mail.</p>
+    </div>
+    <div class="mf-merci" id="mf-merci" aria-live="polite">
+      <span class="tampon">Livré</span>
+      <h3>Message bien reçu !</h3>
+      <p>Merci, je vous réponds très vite. Première pierre posée.</p>
+      <button class="btn btn-ghost" type="button" id="mf-ok">Fermer</button>
+    </div>
+  </div>
+</div>
 
 <div class="barre-mobile" id="barre">
   <a class="btn btn-rouge" href="https://estellelavenac.github.io/Estelle-Lavenac/book.html" target="_blank" rel="noopener">Voir le book</a>
@@ -846,6 +905,86 @@ footer a{color:#fff}
   });
   document.getElementById('jp-jouer').addEventListener('click', lancer);
   charger();
+
+
+  /* ---------- Formulaire de contact ---------- */
+  var ENDPOINT = 'https://formsubmit.co/ajax/estelle.lavenac@gmail.com';
+  var MAILTO = 'mailto:estelle.lavenac@gmail.com?subject=' + encodeURIComponent('Candidature Bonifay – Estelle Lavenac');
+  var modale = document.getElementById('modale'), mfCorps = document.getElementById('mf-corps'), mfMerci = document.getElementById('mf-merci');
+  var mfBtn = document.getElementById('mf-envoyer'), mfStatut = document.getElementById('mf-statut');
+  var champs = {nom: document.getElementById('mf-nom'), email: document.getElementById('mf-email'), message: document.getElementById('mf-message')};
+  var dernierFocus = null;
+
+  function ouvrir(e){
+    if(e) e.preventDefault();
+    dernierFocus = document.activeElement;
+    mfCorps.style.display = ''; mfMerci.classList.remove('on'); mfStatut.className = 'mf-statut'; mfStatut.textContent = '';
+    modale.classList.add('ouverte'); modale.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modale-ouverte');
+    setTimeout(function(){ champs.nom.focus(); }, 250);
+  }
+  function fermer(){
+    modale.classList.remove('ouverte'); modale.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modale-ouverte');
+    if(dernierFocus && dernierFocus.focus) dernierFocus.focus();
+  }
+  document.querySelectorAll('.js-ouvrir-form').forEach(function(a){ a.addEventListener('click', ouvrir); });
+  document.getElementById('mf-fermer').addEventListener('click', fermer);
+  document.getElementById('mf-ok').addEventListener('click', fermer);
+  modale.addEventListener('click', function(e){ if(e.target === modale) fermer(); });
+  document.addEventListener('keydown', function(e){
+    if(!modale.classList.contains('ouverte')) return;
+    if(e.key === 'Escape') fermer();
+    if(e.key === 'Tab'){ // garder le focus dans la modale
+      var f = Array.prototype.filter.call(modale.querySelectorAll('button, input:not([tabindex="-1"]), textarea'), function(el){ return el.offsetParent !== null; });
+      if(!f.length) return;
+      if(e.shiftKey && document.activeElement === f[0]){ e.preventDefault(); f[f.length - 1].focus(); }
+      else if(!e.shiftKey && document.activeElement === f[f.length - 1]){ e.preventDefault(); f[0].focus(); }
+    }
+  });
+  [champs.nom, champs.email].forEach(function(el){ el.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); envoyer(); } }); });
+
+  function erreur(cle, txt){
+    champs[cle].parentNode.classList.toggle('erreur', !!txt);
+    document.getElementById('mf-' + cle + '-err').textContent = txt || '';
+  }
+  function valider(){
+    var ok = true, v;
+    v = champs.nom.value.trim(); erreur('nom', v.length < 2 ? 'Votre nom, svp.' : ''); if(v.length < 2) ok = false;
+    v = champs.email.value.trim(); var bon = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); erreur('email', bon ? '' : 'Une adresse e-mail valide, svp.'); if(!bon) ok = false;
+    v = champs.message.value.trim(); erreur('message', v.length < 5 ? 'Un petit mot, même court.' : ''); if(v.length < 5) ok = false;
+    return ok;
+  }
+  function envoyer(){
+    if(mfBtn.disabled) return;
+    if(document.getElementById('mf-site').value){ return; } // robot
+    if(!valider()){ var e = mfCorps.querySelector('.erreur input, .erreur textarea'); if(e) e.focus(); return; }
+    mfBtn.disabled = true; mfBtn.textContent = 'Envoi en cours…'; mfStatut.className = 'mf-statut';
+    fetch(ENDPOINT, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+      body: JSON.stringify({
+        nom: champs.nom.value.trim(),
+        email: champs.email.value.trim(),
+        message: champs.message.value.trim(),
+        _replyto: champs.email.value.trim(),
+        _subject: 'Landing Bonifay : message de ' + champs.nom.value.trim(),
+        _template: 'table'
+      })
+    }).then(function(r){ return r.json().then(function(d){ return {ok: r.ok, d: d}; }); })
+      .then(function(res){
+        if(!res.ok || (res.d && (res.d.success === false || res.d.success === 'false'))) throw new Error('envoi');
+        mfCorps.style.display = 'none'; mfMerci.classList.add('on');
+        champs.nom.value = champs.email.value = champs.message.value = '';
+        document.getElementById('mf-ok').focus();
+      })
+      .catch(function(){
+        mfStatut.className = 'mf-statut ko';
+        mfStatut.innerHTML = 'Oups, le message n\'est pas parti. Vous pouvez m\'écrire directement : <a href="' + MAILTO + '">estelle.lavenac@gmail.com</a>';
+      })
+      .then(function(){ mfBtn.disabled = false; mfBtn.textContent = 'Envoyer !'; });
+  }
+  mfBtn.addEventListener('click', envoyer);
 
   // Barre CTA mobile après le hero
   var barre = document.getElementById('barre'), hero = document.querySelector('.hero'), contact = document.getElementById('contact');
