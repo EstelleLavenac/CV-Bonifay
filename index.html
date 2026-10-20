@@ -615,7 +615,7 @@ body.modale-ouverte{overflow:hidden}
         <div><span class="mono">Dernière partie</span><strong id="sc-dernier">0</strong></div>
         <div><span class="mono">Record</span><strong id="sc-record" style="color:var(--rouge)">0</strong></div>
       </div>
-      <p class="avert">Prix publics moyens constatés en 2026 dans le négoce et le bricolage, pas les tarifs Bonifay. Les vrais, c'est en agence.</p>
+      <p class="avert">Prix publics moyens constatés en 2026 dans le négoce et le bricolage, pas les tarifs Bonifay. Les vrais, c'est en agence. Nouveaux produits à chaque partie !</p>
     </div>
 
     <div class="jp reveal" id="jp">
@@ -737,20 +737,51 @@ body.modale-ouverte{overflow:hidden}
 
 
   /* ---------- Mini-jeu : Le Juste Prix ---------- */
+  var R = '#C51226', A = '#2B2B2A';
+  function sac(etiquette){ return '<svg viewBox="0 0 64 64" fill="none" stroke="'+A+'" stroke-width="2.4" stroke-linejoin="round"><path d="M16 12h32l4 8v34a4 4 0 0 1-4 4H16a4 4 0 0 1-4-4V20z"/><path d="M12 20h40"/><rect x="16" y="28" width="32" height="15" rx="2" fill="'+R+'" stroke="none"/><text x="32" y="38.6" text-anchor="middle" textLength="26" lengthAdjust="spacingAndGlyphs" font-family="Oswald,Arial Narrow,sans-serif" font-size="8" font-weight="700" fill="#fff" stroke="none">'+etiquette+'</text></svg>'; }
   var ICONES = {
-    sac:'<svg viewBox="0 0 64 64" fill="none" stroke="#2B2B2A" stroke-width="2.4" stroke-linejoin="round"><path d="M16 12h32l4 8v34a4 4 0 0 1-4 4H16a4 4 0 0 1-4-4V20z"/><path d="M12 20h40"/><rect x="20" y="28" width="24" height="14" rx="2" fill="#C51226" stroke="none"/><path d="M24 35h16" stroke="#fff"/></svg>',
-    parpaing:'<svg viewBox="0 0 64 64" fill="none" stroke="#2B2B2A" stroke-width="2.4" stroke-linejoin="round"><path d="M8 24l12-8h36v24l-12 8H8z"/><path d="M8 24h36v24M44 24l12-8"/><rect x="13" y="29" width="10" height="14" rx="1.5" fill="#C51226" stroke="none"/><rect x="29" y="29" width="10" height="14" rx="1.5" fill="#C51226" stroke="none"/></svg>',
-    plaque:'<svg viewBox="0 0 64 64" fill="none" stroke="#2B2B2A" stroke-width="2.4" stroke-linejoin="round"><path d="M18 6h28v52H18z"/><path d="M46 6l4 3v52l-4-3"/><path d="M24 50h16" stroke="#C51226" stroke-width="3"/><path d="M24 14h10" stroke="#C51226" stroke-width="3"/></svg>',
-    toupie:'<svg viewBox="0 0 64 64" fill="none" stroke="#2B2B2A" stroke-width="2.4" stroke-linejoin="round"><path d="M4 44V30h12l4-6h4v20"/><path d="M24 44h34V40"/><ellipse cx="40" cy="30" rx="16" ry="10" fill="#C51226" stroke="#2B2B2A"/><path d="M30 24l20 12M34 21l18 10" stroke="#fff"/><circle cx="14" cy="47" r="5" fill="#fff"/><circle cx="46" cy="47" r="5" fill="#fff"/></svg>',
-    designer:'<svg viewBox="0 0 64 64" fill="none" stroke="#2B2B2A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><path d="M14 30a18 18 0 0 1 36 0z" fill="#C51226" stroke="#2B2B2A"/><path d="M10 30h44"/><path d="M32 12v-4"/><circle cx="32" cy="42" r="10" fill="#fff"/><path d="M28 41h0M36 41h0" stroke-width="3.5"/><path d="M28 46c2 2 6 2 8 0"/></svg>'
+    ciment: sac('CIMENT'),
+    gravier: sac('BÉTON'),
+    mortier: sac('COLLE'),
+    parpaing:'<svg viewBox="0 0 64 64" fill="none" stroke="'+A+'" stroke-width="2.4" stroke-linejoin="round"><path d="M8 24l12-8h36v24l-12 8H8z"/><path d="M8 24h36v24M44 24l12-8"/><rect x="13" y="29" width="10" height="14" rx="1.5" fill="'+R+'" stroke="none"/><rect x="29" y="29" width="10" height="14" rx="1.5" fill="'+R+'" stroke="none"/></svg>',
+    plaque:'<svg viewBox="0 0 64 64" fill="none" stroke="'+A+'" stroke-width="2.4" stroke-linejoin="round"><path d="M18 6h28v52H18z"/><path d="M46 6l4 3v52l-4-3"/><path d="M24 50h16" stroke="'+R+'" stroke-width="3"/><path d="M24 14h10" stroke="'+R+'" stroke-width="3"/></svg>',
+    toupie:'<svg viewBox="0 0 64 64" fill="none" stroke="'+A+'" stroke-width="2.4" stroke-linejoin="round"><path d="M4 44V30h12l4-6h4v20"/><path d="M24 44h34V40"/><ellipse cx="40" cy="30" rx="16" ry="10" fill="'+R+'"/><path d="M30 24l20 12M34 21l18 10" stroke="#fff"/><circle cx="14" cy="47" r="5" fill="#fff"/><circle cx="46" cy="47" r="5" fill="#fff"/></svg>',
+    brouette:'<svg viewBox="0 0 64 64" fill="none" stroke="'+A+'" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><path d="M10 24h34l-6 16H18z" fill="'+R+'"/><path d="M44 24l14-8M18 40l-4 12M38 40l-8 4"/><circle cx="26" cy="48" r="6" fill="#fff"/></svg>',
+    treillis:'<svg viewBox="0 0 64 64" fill="none" stroke="'+A+'" stroke-width="2.2"><rect x="8" y="14" width="48" height="36" rx="1"/><path d="M20 14v36M32 14v36M44 14v36M8 26h48M8 38h48"/><circle cx="32" cy="26" r="3" fill="'+R+'" stroke="none"/><circle cx="20" cy="38" r="3" fill="'+R+'" stroke="none"/><circle cx="44" cy="38" r="3" fill="'+R+'" stroke="none"/></svg>',
+    bigbag:'<svg viewBox="0 0 64 64" fill="none" stroke="'+A+'" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><path d="M14 18h36v34a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4z"/><path d="M14 18l4-8M50 18l-4-8M24 18l2-8M40 18l-2-8"/><path d="M14 34c10 4 26 4 36 0v18a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4z" fill="'+R+'"/></svg>',
+    tuile:'<svg viewBox="0 0 64 64" fill="none" stroke="'+A+'" stroke-width="2.4" stroke-linejoin="round"><path d="M10 46c0-14 8-26 22-26s22 12 22 26z" fill="'+R+'"/><path d="M18 46c0-8 6-16 14-16s14 8 14 16" stroke="#fff"/><path d="M6 50h52"/></svg>',
+    betonniere:'<svg viewBox="0 0 64 64" fill="none" stroke="'+A+'" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><path d="M20 14l26 8-6 20-24-6z" fill="'+R+'"/><path d="M26 20l14 4M24 28l14 4" stroke="#fff"/><path d="M28 38v14M16 52h28M36 40l12 12"/><circle cx="48" cy="54" r="4" fill="#fff"/></svg>',
+    seau:'<svg viewBox="0 0 64 64" fill="none" stroke="'+A+'" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><path d="M14 20h36l-5 36H19z" fill="'+R+'"/><path d="M12 20h40"/><path d="M14 20c0-10 36-10 36 0"/><path d="M22 30h20" stroke="#fff"/></svg>',
+    designer:'<svg viewBox="0 0 64 64" fill="none" stroke="'+A+'" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><path d="M14 30a18 18 0 0 1 36 0z" fill="'+R+'"/><path d="M10 30h44"/><path d="M32 12v-4"/><circle cx="32" cy="42" r="10" fill="#fff"/><path d="M28 41h0M36 41h0" stroke-width="3.5"/><path d="M28 46c2 2 6 2 8 0"/></svg>'
   };
-  var PRODUITS = [
-    {nom:'Sac de ciment', desc:'Ciment gris CEM II 32,5 · sac de 35 kg', univers:'Gros œuvre', ico:'sac', prix:9.30, tol:.1, mot:'Le prix d\'un bon point de départ.'},
-    {nom:'Parpaing creux', desc:'Bloc béton 20 × 20 × 50 cm · à l\'unité', univers:'Construction', ico:'parpaing', prix:1.25, tol:.12, mot:'Petit prix, gros rôle. Comme une bonne charte.'},
+  // Réserve de produits : prix publics moyens constatés (2026), pas les tarifs Bonifay
+  var RESERVE = [
+    {nom:'Sac de ciment', desc:'Ciment gris CEM II 32,5 · sac de 35 kg', univers:'Gros œuvre', ico:'ciment', prix:9.30, tol:.1, mot:'Le prix d\'un bon point de départ.'},
+    {nom:'Parpaing creux', desc:'Bloc béton 20 × 20 × 50 cm · à l\'unité', univers:'Construction', ico:'parpaing', prix:1.25, tol:.15, mot:'Petit prix, gros rôle. Comme une bonne charte.'},
     {nom:'Plaque de plâtre', desc:'BA13 standard 250 × 120 cm · à la plaque', univers:'Cloison & plafond', ico:'plaque', prix:7.50, tol:.1, mot:'Lisse, droite, prête à décorer.'},
     {nom:'Béton prêt à l\'emploi', desc:'1 m³ livré en toupie sur chantier', univers:'Toupie & pompe', ico:'toupie', prix:180, tol:.15, mot:'Les prix varient de 120 à 240 € selon le béton et le chantier.'},
-    {nom:'Designer graphique senior', desc:'Print, web, motion & vidéo · 9 ans d\'expérience · disponible', univers:'Arrivage spécial', ico:'designer', prix:null}
+    {nom:'Brouette de chantier', desc:'100 L, galvanisée, roue gonflable', univers:'Matériel de chantier', ico:'brouette', prix:74.90, tol:.1, mot:'Elle porte tout. Moi aussi, côté fichiers lourds.'},
+    {nom:'Panneau treillis soudé', desc:'2,40 × 1,20 m · maille 20 × 20 cm', univers:'Fer à béton', ico:'treillis', prix:5.49, tol:.12, mot:'Une bonne trame, c\'est la base. En dalle comme en mise en page.'},
+    {nom:'Big bag de sable', desc:'Sable 0/4 pour maçonnerie · le big bag', univers:'Gravillon & sable', ico:'bigbag', prix:74.90, tol:.12, mot:'Du sable à bâtir, pas de plage. Dommage.'},
+    {nom:'Tuile canal', desc:'Terre cuite · à l\'unité', univers:'Couverture', ico:'tuile', prix:1.30, tol:.35, mot:'Selon le modèle, de 0,60 à 2 € la tuile. Un classique provençal.'},
+    {nom:'Bétonnière électrique', desc:'Cuve de 160 L, sur 2 roulettes', univers:'Matériel de chantier', ico:'betonniere', prix:339, tol:.12, mot:'Ça tourne en continu, comme mes idées.'},
+    {nom:'Seau de maçon', desc:'Caoutchouc, 12 L', univers:'Outillage', ico:'seau', prix:9.99, tol:.12, mot:'L\'outil le plus sous-estimé du chantier.'},
+    {nom:'Mélange sable-gravier', desc:'Prêt pour béton · sac de 35 kg', univers:'Gravillon & sable', ico:'gravier', prix:4.29, tol:.15, mot:'Le mélange parfait, comme print + web + motion.'},
+    {nom:'Mortier colle carrelage', desc:'C2 gris, intérieur et extérieur · sac de 25 kg', univers:'Carrelage & revêtement', ico:'mortier', prix:13.90, tol:.12, mot:'Pour que tout tienne en place. Mon métier, version carrelage.'},
+    {nom:'Big bag de gravier', desc:'Gravier pour confection de béton · 1 m³', univers:'Gravillon & sable', ico:'bigbag', prix:81.90, tol:.12, mot:'Un mètre cube de solidité.'}
   ];
+  var DESIGNER = {nom:'Designer graphique senior', desc:'Print, web, motion & vidéo · 9 ans d\'expérience · disponible', univers:'Arrivage spécial', ico:'designer', prix:null};
+  var PAR_PARTIE = 4, dejaVus = [];
+  function tirage(){
+    // on évite de reprendre les produits de la partie précédente tant que la réserve le permet
+    var neufs = RESERVE.filter(function(p){ return dejaVus.indexOf(p) < 0; });
+    if(neufs.length < PAR_PARTIE) neufs = RESERVE.slice();
+    for(var i = neufs.length - 1; i > 0; i--){ var j = Math.floor(Math.random() * (i + 1)); var t = neufs[i]; neufs[i] = neufs[j]; neufs[j] = t; }
+    var choix = neufs.slice(0, PAR_PARTIE);
+    dejaVus = choix;
+    return choix.concat([DESIGNER]);
+  }
+  var PRODUITS = tirage();
   var MAX = 6;
   var jp = document.getElementById('jp'), jpForm = document.getElementById('jp-form'), jpIn = document.getElementById('jp-input');
   var jpRetour = document.getElementById('jp-retour'), jpEssais = document.getElementById('jp-essais'), jpReste = document.getElementById('jp-reste');
@@ -772,7 +803,7 @@ body.modale-ouverte{overflow:hidden}
     var p = PRODUITS[idx];
     essais = 0; fini = false;
     document.getElementById('jp-num').textContent = 'Produit ' + (idx + 1) + ' / ' + PRODUITS.length;
-    document.getElementById('jp-visu').innerHTML = ICONES[p.ico].replace(/#C51226/g, getComputedStyle(document.documentElement).getPropertyValue('--rouge').trim() || '#C51226');
+    document.getElementById('jp-visu').innerHTML = ICONES[p.ico];
     document.getElementById('jp-univers').textContent = p.univers;
     document.getElementById('jp-nom').textContent = p.nom;
     document.getElementById('jp-desc').textContent = p.desc;
@@ -807,6 +838,7 @@ body.modale-ouverte{overflow:hidden}
     jpCalque.classList.remove('cache');
   }
   function lancer(){
+    PRODUITS = tirage();
     idx = 0; score = 0; jpScoreEl.textContent = '0'; enCours = true;
     charger(); jpCalque.classList.add('cache');
     if(window.matchMedia('(hover: hover)').matches) setTimeout(function(){ jpIn.focus(); }, 300);
