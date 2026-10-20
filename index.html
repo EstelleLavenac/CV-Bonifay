@@ -813,7 +813,7 @@ body.modale-ouverte{overflow:hidden}
   }
   function secouer(){ jpRetour.classList.remove('secoue'); void jpRetour.offsetWidth; jpRetour.classList.add('secoue'); }
 
-  function valider(){
+  function validerPrix(){
     if(!enCours) return;
     if(fini){ suivant(); return; }
     var p = PRODUITS[idx];
@@ -860,10 +860,10 @@ body.modale-ouverte{overflow:hidden}
     jpReste.textContent = (MAX - essais) + ' essai' + (MAX - essais > 1 ? 's' : '') + ' restant' + (MAX - essais > 1 ? 's' : '');
     jpIn.value = ''; jpIn.focus();
   }
-  document.getElementById('jp-ok').addEventListener('click', function(e){ e.preventDefault(); valider(); });
-  jpIn.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); valider(); } });
+  document.getElementById('jp-ok').addEventListener('click', function(e){ e.preventDefault(); validerPrix(); });
+  jpIn.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); validerPrix(); } });
   document.addEventListener('keydown', function(e){
-    if(e.key === 'Enter' && enCours && fini && document.activeElement !== jpIn){ var r = jp.getBoundingClientRect(); if(r.top < window.innerHeight && r.bottom > 0){ e.preventDefault(); valider(); } }
+    if(e.key === 'Enter' && enCours && fini && document.activeElement !== jpIn){ var r = jp.getBoundingClientRect(); if(r.top < window.innerHeight && r.bottom > 0){ e.preventDefault(); validerPrix(); } }
   });
   document.getElementById('jp-jouer').addEventListener('click', lancer);
   charger();
@@ -910,7 +910,7 @@ body.modale-ouverte{overflow:hidden}
     champs[cle].parentNode.classList.toggle('erreur', !!txt);
     document.getElementById('mf-' + cle + '-err').textContent = txt || '';
   }
-  function valider(){
+  function validerFormulaire(){
     var ok = true, v;
     v = champs.nom.value.trim(); erreur('nom', v.length < 2 ? 'Votre nom, svp.' : ''); if(v.length < 2) ok = false;
     v = champs.email.value.trim(); var bon = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); erreur('email', bon ? '' : 'Une adresse e-mail valide, svp.'); if(!bon) ok = false;
@@ -920,7 +920,7 @@ body.modale-ouverte{overflow:hidden}
   function envoyer(){
     if(mfBtn.disabled) return;
     if(document.getElementById('mf-site').value){ return; } // robot
-    if(!valider()){ var e = mfCorps.querySelector('.erreur input, .erreur textarea'); if(e) e.focus(); return; }
+    if(!validerFormulaire()){ var e = mfCorps.querySelector('.erreur input, .erreur textarea'); if(e) e.focus(); return; }
     mfBtn.disabled = true; mfBtn.textContent = 'Envoi en cours…'; mfStatut.className = 'mf-statut';
     fetch(ENDPOINT, {
       method: 'POST',
