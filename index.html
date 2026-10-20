@@ -982,6 +982,10 @@ body.modale-ouverte{overflow:hidden}
         document.getElementById('mf-ok').focus();
       })
       .catch(function(err){
+        // Réseau bloqué (ex. navigateur intégré, extension) : on passe par un envoi classique, qui ne dépend pas de fetch
+        if(!(err && err.activation) && (!err || !err.message || err.message === 'Failed to fetch' || err.name === 'TypeError') && /^https?:/.test(location.protocol)){
+          envoiClassique(); return;
+        }
         mfStatut.className = 'mf-statut ko';
         if(err && err.activation){
           mfStatut.innerHTML = 'Formulaire pas encore activé : un e-mail d\'activation vient d\'être envoyé à estelle.lavenac@gmail.com. En attendant : <a href="' + MAILTO + '">écrire directement</a>';
@@ -992,6 +996,24 @@ body.modale-ouverte{overflow:hidden}
       .then(function(){ mfBtn.disabled = false; mfBtn.textContent = 'Envoyer !'; });
   }
   mfBtn.addEventListener('click', envoyer);
+
+  function envoiClassique(){
+    var f = document.createElement('form');
+    f.method = 'POST'; f.action = 'https://formsubmit.co/estelle.lavenac@gmail.com'; f.style.display = 'none';
+    var retour = location.href.split('#')[0].split('?')[0] + '?merci=1#contact';
+    var data = {
+      nom: champs.nom.value.trim(), email: champs.email.value.trim(), message: champs.message.value.trim(),
+      _replyto: champs.email.value.trim(), _subject: 'Landing Bonifay : message de ' + champs.nom.value.trim(),
+      _template: 'table', _captcha: 'false', _next: retour
+    };
+    Object.keys(data).forEach(function(k){ var i = document.createElement('input'); i.type = 'hidden'; i.name = k; i.value = data[k]; f.appendChild(i); });
+    document.body.appendChild(f); f.submit();
+  }
+  // Retour après un envoi classique : on affiche la confirmation
+  if(/[?&]merci=1/.test(location.search)){
+    ouvrir(); mfCorps.style.display = 'none'; mfMerci.classList.add('on');
+    try { history.replaceState(null, '', location.pathname + '#contact'); } catch(e) {}
+  }
 
   // Barre CTA mobile après le hero
   var barre = document.getElementById('barre'), hero = document.querySelector('.hero'), contact = document.getElementById('contact');
